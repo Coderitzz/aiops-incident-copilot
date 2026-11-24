@@ -1,0 +1,6 @@
+[Unit]
+Description=Host health check (disk, memory, failed units)
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/host-healthcheck.sh

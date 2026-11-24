@@ -1,0 +1,7 @@
+---
+# Route private instances through the bastion.
+ansible_ssh_common_args: >-
+  -o ProxyCommand="ssh -i /home/ubuntu/.ssh/aiops
+  -o StrictHostKeyChecking=no
+  -o UserKnownHostsFile=/dev/null
+  -W %h:%p ubuntu@{{ lookup('env', 'BASTION_IP') }}"

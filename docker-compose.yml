@@ -1,0 +1,71 @@
+name: aiops
+
+x-service: &service
+  restart: unless-stopped
+  networks: [app]
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: app
+      POSTGRES_DB: orders
+    volumes: [pgdata:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U app -d orders"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    networks: [app]
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    networks: [app]
+
+  inventory-service:
+    <<: *service
+    build: { context: ./services, args: { SERVICE: inventory-service } }
+    environment:
+      REDIS_URL: redis://redis:6379/0
+    depends_on: { redis: { condition: service_healthy } }
+    ports: ["8003:8000"]
+
+  payment-service:
+    <<: *service
+    build: { context: ./services, args: { SERVICE: payment-service } }
+    ports: ["8002:8000"]
+
+  order-service:
+    <<: *service
+    build: { context: ./services, args: { SERVICE: order-service } }
+    environment:
+      DATABASE_URL: postgresql://app:app@postgres:5432/orders
+      INVENTORY_URL: http://inventory-service:8000
+      PAYMENT_URL: http://payment-service:8000
+    depends_on:
+      postgres: { condition: service_healthy }
+      inventory-service: { condition: service_started }
+      payment-service: { condition: service_started }
+    ports: ["8001:8000"]
+
+  frontend:
+    <<: *service
+    build: { context: ./services, args: { SERVICE: frontend } }
+    environment:
+      ORDER_URL: http://order-service:8000
+    depends_on: { order-service: { condition: service_started } }
+    ports: ["8080:8000"]
+
+networks:
+  app:
+
+volumes:
+  pgdata:

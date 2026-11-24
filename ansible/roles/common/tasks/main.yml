@@ -1,0 +1,89 @@
+---
+- name: Update apt cache and apply safe upgrades
+  ansible.builtin.apt:
+    update_cache: true
+    cache_valid_time: 3600
+    upgrade: safe
+
+- name: Install baseline packages
+  ansible.builtin.apt:
+    name: "{{ common_packages }}"
+    state: present
+
+- name: Set hostname from the Name tag
+  ansible.builtin.hostname:
+    name: "{{ inventory_hostname }}"
+
+- name: Harden sshd with a drop-in config (00- prefix so it wins)
+  ansible.builtin.copy:
+    dest: /etc/ssh/sshd_config.d/00-hardening.conf
+    mode: "0644"
+    content: |
+      PermitRootLogin no
+      PasswordAuthentication no
+      KbdInteractiveAuthentication no
+      X11Forwarding no
+      MaxAuthTries 3
+      LoginGraceTime 30
+      ClientAliveInterval 300
+      ClientAliveCountMax 2
+    validate: /usr/sbin/sshd -t -f %s
+  notify: Restart sshd
+
+- name: Apply kernel network hardening
+  ansible.posix.sysctl:
+    name: "{{ item.key }}"
+    value: "{{ item.value }}"
+    sysctl_file: /etc/sysctl.d/90-hardening.conf
+    reload: true
+    state: present
+  loop: "{{ common_sysctl | dict2items }}"
+
+- name: Configure fail2ban for sshd
+  ansible.builtin.copy:
+    dest: /etc/fail2ban/jail.d/sshd-local.conf
+    mode: "0644"
+    content: |
+      [sshd]
+      enabled  = true
+      backend  = systemd
+      maxretry = 5
+      findtime = 10m
+      bantime  = 1h
+  notify: Restart fail2ban
+
+- name: Enable fail2ban
+  ansible.builtin.service:
+    name: fail2ban
+    enabled: true
+    state: started
+
+- name: Enable automatic security updates
+  ansible.builtin.copy:
+    dest: /etc/apt/apt.conf.d/20auto-upgrades
+    mode: "0644"
+    content: |
+      APT::Periodic::Update-Package-Lists "1";
+      APT::Periodic::Unattended-Upgrade "1";
+
+- name: Install the host health-check script
+  ansible.builtin.copy:
+    src: host-healthcheck.sh
+    dest: /usr/local/bin/host-healthcheck.sh
+    mode: "0755"
+
+- name: Install health-check systemd units
+  ansible.builtin.copy:
+    src: "{{ item }}"
+    dest: "/etc/systemd/system/{{ item }}"
+    mode: "0644"
+  loop:
+    - host-healthcheck.service
+    - host-healthcheck.timer
+
+- name: Enable the health-check timer
+  ansible.builtin.systemd:
+    name: host-healthcheck.timer
+    enabled: true
+    state: started
+    daemon_reload: true

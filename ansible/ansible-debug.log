@@ -1,0 +1,1694 @@
+[WARNING]: Deprecation warnings can be disabled by setting `deprecation_warnings=False` in ansible.cfg.
+[DEPRECATION WARNING]: Importing 'to_text' from 'ansible.module_utils._text' is deprecated. This feature will be removed from ansible-core version 2.24. Use ansible.module_utils.common.text.converters instead.
+[DEPRECATION WARNING]: Importing 'to_native' from 'ansible.module_utils._text' is deprecated. This feature will be removed from ansible-core version 2.24. Use ansible.module_utils.common.text.converters instead.
+[DEPRECATION WARNING]: Passing `disable_lookups` to `template` is deprecated. This feature will be removed from ansible-core version 2.23.
+[WARNING]: Found variable using reserved name 'tags'.
+Origin: <unknown>
+
+tags
+
+ansible-playbook [core 2.20.1]
+  config file = /home/ubuntu/aiops-incident-copilot/ansible/ansible.cfg
+  configured module search path = ['/home/ubuntu/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  ansible collection location = /home/ubuntu/.ansible/collections:/usr/share/ansible/collections
+  executable location = /usr/bin/ansible-playbook
+  python version = 3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0] (/usr/bin/python3)
+  jinja version = 3.1.6
+  pyyaml version = 6.0.3 (with libyaml v0.2.5)
+Using /home/ubuntu/aiops-incident-copilot/ansible/ansible.cfg as config file
+host_list declined parsing /home/ubuntu/aiops-incident-copilot/ansible/inventory/aws_ec2.yml as it did not pass its verify_file() method
+script declined parsing /home/ubuntu/aiops-incident-copilot/ansible/inventory/aws_ec2.yml as it did not pass its verify_file() method
+Using inventory plugin 'ansible_collections.amazon.aws.plugins.inventory.aws_ec2' to process inventory source '/home/ubuntu/aiops-incident-copilot/ansible/inventory/aws_ec2.yml'
+Parsed /home/ubuntu/aiops-incident-copilot/ansible/inventory/aws_ec2.yml inventory source with auto plugin
+Skipping callback 'minimal', as we already have a stdout callback.
+Skipping callback 'oneline', as we already have a stdout callback.
+
+PLAYBOOK: site.yml *************************************************************
+2 plays in playbooks/site.yml
+
+PLAY [Baseline hardening and monitoring agent on every host] *******************
+
+TASK [Gathering Facts] *********************************************************
+task path: /home/ubuntu/aiops-incident-copilot/ansible/playbooks/site.yml:2
+<aiops-dev-bastion> Attempting python interpreter discovery.
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'echo FOUND; command -v '"'"'"'"'"'"'"'"'python3.14'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.13'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.12'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.11'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.10'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.9'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'/usr/bin/python3'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3'"'"'"'"'"'"'"'"'; echo ENDFOUND && sleep 0'"'"''
+<aiops-dev-ci> Attempting python interpreter discovery.
+<10.0.10.61> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<aiops-dev-k3s> Attempting python interpreter discovery.
+<10.0.10.142> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<10.0.10.142> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/51914fef42"' -o NumberOfPasswordPrompts=1 10.0.10.142 '/bin/sh -c '"'"'echo FOUND; command -v '"'"'"'"'"'"'"'"'python3.14'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.13'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.12'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.11'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.10'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.9'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'/usr/bin/python3'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3'"'"'"'"'"'"'"'"'; echo ENDFOUND && sleep 0'"'"''
+<10.0.10.61> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/bb40d1d8f9"' -o NumberOfPasswordPrompts=1 10.0.10.61 '/bin/sh -c '"'"'echo FOUND; command -v '"'"'"'"'"'"'"'"'python3.14'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.13'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.12'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.11'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.10'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.9'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'/usr/bin/python3'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3'"'"'"'"'"'"'"'"'; echo ENDFOUND && sleep 0'"'"''
+<32.195.71.79> (0, b'FOUND\n/usr/bin/python3.12\n/usr/bin/python3\n/usr/bin/python3\nENDFOUND\n', b'')
+Using module file /usr/lib/python3/dist-packages/ansible/modules/setup.py
+Pipelining is enabled.
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-qnsdswmmbvmpfbigwgdtpyeqkjsktshe ; /usr/bin/python3.12'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<32.195.71.79> Escalation succeeded
+<32.195.71.79> (0, b'\n{"ansible_facts": {"ansible_user_id": "root", "ansible_user_uid": 0, "ansible_user_gid": 0, "ansible_user_gecos": "root", "ansible_user_dir": "/root", "ansible_user_shell": "/bin/bash", "ansible_real_user_id": 0, "ansible_effective_user_id": 0, "ansible_real_group_id": 0, "ansible_effective_group_id": 0, "ansible_ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAADAQABAAABgQC4uWpUl5j07VPuuxS9cY/F+vSyXebuIWMaSmUtH7hlUIHFwS2Vqqk8OW7DUFua+g+fsT413Td05O2/JpMxkv4ZSW4eaLUEqJTCLGjO937ZWsxLvzCQpjR09SIwvH3WjA3zGJ/zaQTSwfTIZx/6T+DBc5nlTH1kq8fKUIY5h/wJyzCPuSPUhA+4A3ffitjDljCf4pWo7k6b3R/hCFWMD4VbAty62+pYa4nYpu4y+VDJcPN8MGLGowVGTIWgpzU04/t/IhvTTPCeHAfcz9yR7LSxK8KuZe4aN0/2knbuLm+P/8KPa72Dqsk+xB7wUtl3BWMV5b2dg7av/J/DOmHke3FwnbncDs/W/Iz7mkmcmOjEgXQOlx05dEcHpkrLEaAsNEqh7SCi6G8fDSoi/PIznM1BAEsBycydW377DooZxvhcRXLIj9UJ+nBT9UUcoaYvJ12GVAX2npUBt1B9iV/2ck7HWJst2i6SrZsxesJICk+qbrWlVMcIGK4RcPrrDs5iY2s=", "ansible_ssh_host_key_rsa_public_keytype": "ssh-rsa", "ansible_ssh_host_key_ecdsa_public": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBEfKtvhWP2DEnZiIgkWQXwj43jrUXo05W4sCysLuyvXSxYGrcfyJI10vP/O+MnADFsr1jKUgYQQk49aVnqeWd54=", "ansible_ssh_host_key_ecdsa_public_keytype": "ecdsa-sha2-nistp256", "ansible_ssh_host_key_ed25519_public": "AAAAC3NzaC1lZDI1NTE5AAAAIPZsH9oj86vkBsltuiYqMIHY/yLjMlD65ZM6tbmijvxk", "ansible_ssh_host_key_ed25519_public_keytype": "ssh-ed25519", "ansible_virtualization_role": "guest", "ansible_virtualization_type": "kvm", "ansible_virtualization_tech_guest": ["kvm"], "ansible_virtualization_tech_host": [], "ansible_system": "Linux", "ansible_kernel": "7.0.0-1018-aws", "ansible_kernel_version": "#19~24.04.1-Ubuntu SMP PREEMPT Thu Nov 12 17:17:32 UTC 2026", "ansible_machine": "x86_64", "ansible_python_version": "3.12.3", "ansible_fqdn": "ip-10-0-0-62.ec2.internal", "ansible_hostname": "aiops-dev-bastion", "ansible_nodename": "aiops-dev-bastion", "ansible_domain": "ec2.internal", "ansible_userspace_bits": "64", "ansible_architecture": "x86_64", "ansible_userspace_architecture": "x86_64", "ansible_machine_id": "ec2e0069e7f456c635881db484882ad0", "ansible_apparmor": {"status": "enabled"}, "ansible_distribution": "Ubuntu", "ansible_distribution_release": "noble", "ansible_distribution_version": "24.04", "ansible_distribution_major_version": "24", "ansible_distribution_file_path": "/etc/os-release", "ansible_distribution_file_variety": "Debian", "ansible_distribution_file_parsed": true, "ansible_os_family": "Debian", "ansible_system_capabilities_enforced": "False", "ansible_system_capabilities": [], "ansible_cmdline": {"BOOT_IMAGE": "/vmlinuz-7.0.0-1018-aws", "root": "PARTUUID=26711ced-2b2e-49ba-87b3-5c28e0fac385", "ro": true, "console": "ttyS0", "nvme_core.io_timeout": "4294967295", "panic": "-1"}, "ansible_proc_cmdline": {"BOOT_IMAGE": "/vmlinuz-7.0.0-1018-aws", "root": "PARTUUID=26711ced-2b2e-49ba-87b3-5c28e0fac385", "ro": true, "console": ["tty1", "ttyS0"], "nvme_core.io_timeout": "4294967295", "panic": "-1"}, "ansible_fips": false, "ansible_is_chroot": false, "ansible_selinux_python_present": true, "ansible_selinux": {"status": "disabled"}, "ansible_pkg_mgr": "apt", "ansible_local": {}, "ansible_python": {"version": {"major": 3, "minor": 12, "micro": 3, "releaselevel": "final", "serial": 0}, "version_info": [3, 12, 3, "final", 0], "executable": "/usr/bin/python3.12", "has_sslcontext": true, "type": "cpython"}, "ansible_systemd": {"features": "+PAM +AUDIT +SELINUX +APPARMOR +IMA +SMACK +SECCOMP +GCRYPT -GNUTLS +OPENSSL +ACL +BLKID +CURL +ELFUTILS +FIDO2 +IDN2 -IDN +IPTC +KMOD +LIBCRYPTSETUP +LIBFDISK +PCRE2 -PWQUALITY +P11KIT +QRENCODE +TPM2 +BZIP2 +LZ4 +XZ +ZLIB +ZSTD -BPF_FRAMEWORK -XKBCOMMON +UTMP +SYSVINIT default-hierarchy=unified", "version": 255}, "ansible_lsb": {"id": "Ubuntu", "description": "Ubuntu 24.04.5 LTS", "release": "24.04", "codename": "noble", "major_release": "24"}, "ansible_hostnqn": "", "ansible_loadavg": {"1m": 0.05908203125, "5m": 0.056640625, "15m": 0.01611328125}, "ansible_fibre_channel_wwn": [], "ansible_env": {"SUDO_GID": "1000", "MAIL": "/var/mail/root", "USER": "root", "HOME": "/root", "SUDO_UID": "1000", "LOGNAME": "root", "TERM": "unknown", "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin", "LANG": "C.UTF-8", "SUDO_COMMAND": "/bin/sh -c echo BECOME-SUCCESS-qnsdswmmbvmpfbigwgdtpyeqkjsktshe ; /usr/bin/python3.12", "SHELL": "/bin/bash", "SUDO_USER": "ubuntu", "PWD": "/home/ubuntu"}, "ansible_date_time": {"year": "2026", "month": "11", "weekday": "Monday", "weekday_number": "1", "weeknumber": "47", "day": "23", "hour": "16", "minute": "34", "second": "39", "epoch": "1795451679", "epoch_int": "1795451679", "date": "2026-11-23", "time": "16:34:39", "iso8601_micro": "2026-11-23T16:34:39.960933Z", "iso8601": "2026-11-23T16:34:39Z", "iso8601_basic": "20261123T163439960933", "iso8601_basic_short": "20261123T163439", "tz": "UTC", "tz_dst": "UTC", "tz_offset": "+0000"}, "ansible_dns": {"nameservers": ["127.0.0.53"], "options": {"edns0": true, "trust-ad": true}, "search": ["ec2.internal"]}, "ansible_iscsi_iqn": "", "ansible_interfaces": ["lo", "ens5"], "ansible_lo": {"device": "lo", "mtu": 65536, "active": true, "type": "loopback", "promisc": false, "ipv4": {"address": "127.0.0.1", "broadcast": "", "netmask": "255.0.0.0", "network": "127.0.0.0", "prefix": "8"}, "ipv6": [{"address": "::1", "prefix": "128", "scope": "host"}], "features": {"rx_checksumming": "on [fixed]", "tx_checksumming": "on", "tx_checksum_ipv4": "off [fixed]", "tx_checksum_ip_generic": "on [fixed]", "tx_checksum_ipv6": "off [fixed]", "tx_checksum_fcoe_crc": "off [fixed]", "tx_checksum_sctp": "on [fixed]", "scatter_gather": "on", "tx_scatter_gather": "on [fixed]", "tx_scatter_gather_fraglist": "on [fixed]", "tcp_segmentation_offload": "on", "tx_tcp_segmentation": "on", "tx_tcp_ecn_segmentation": "on", "tx_tcp_mangleid_segmentation": "on", "tx_tcp6_segmentation": "on", "tx_tcp_accecn_segmentation": "on", "generic_segmentation_offload": "on", "generic_receive_offload": "on", "large_receive_offload": "off [fixed]", "rx_vlan_offload": "off [fixed]", "tx_vlan_offload": "off [fixed]", "ntuple_filters": "off [fixed]", "receive_hashing": "off [fixed]", "highdma": "on [fixed]", "rx_vlan_filter": "off [fixed]", "vlan_challenged": "on [fixed]", "tx_gso_robust": "off [fixed]", "tx_fcoe_segmentation": "off [fixed]", "tx_gre_segmentation": "off [fixed]", "tx_gre_csum_segmentation": "off [fixed]", "tx_ipxip4_segmentation": "off [fixed]", "tx_ipxip6_segmentation": "off [fixed]", "tx_udp_tnl_segmentation": "off [fixed]", "tx_udp_tnl_csum_segmentation": "off [fixed]", "tx_gso_partial": "off [fixed]", "tx_tunnel_remcsum_segmentation": "off [fixed]", "tx_sctp_segmentation": "on", "tx_esp_segmentation": "off [fixed]", "tx_udp_segmentation": "on", "tx_gso_list": "on", "tx_nocache_copy": "off [fixed]", "loopback": "on [fixed]", "rx_fcs": "off [fixed]", "rx_all": "off [fixed]", "tx_vlan_stag_hw_insert": "off [fixed]", "rx_vlan_stag_hw_parse": "off [fixed]", "rx_vlan_stag_filter": "off [fixed]", "l2_fwd_offload": "off [fixed]", "hw_tc_offload": "off [fixed]", "esp_hw_offload": "off [fixed]", "esp_tx_csum_hw_offload": "off [fixed]", "rx_udp_tunnel_port_offload": "off [fixed]", "tls_hw_tx_offload": "off [fixed]", "tls_hw_rx_offload": "off [fixed]", "rx_gro_hw": "off [fixed]", "tls_hw_record": "off [fixed]", "rx_gro_list": "off", "macsec_hw_offload": "off [fixed]", "rx_udp_gro_forwarding": "off", "hsr_tag_ins_offload": "off [fixed]", "hsr_tag_rm_offload": "off [fixed]", "hsr_fwd_offload": "off [fixed]", "hsr_dup_offload": "off [fixed]"}, "timestamping": [], "hw_timestamp_filters": []}, "ansible_ens5": {"device": "ens5", "macaddress": "02:ff:f5:ed:5c:69", "mtu": 9001, "active": true, "module": "ena", "type": "ether", "pciid": "0000:00:05.0", "promisc": false, "ipv4": {"address": "10.0.0.62", "broadcast": "", "netmask": "255.255.255.0", "network": "10.0.0.0", "prefix": "24"}, "ipv6": [{"address": "fe80::ff:f5ff:feed:5c69", "prefix": "64", "scope": "link"}], "features": {"rx_checksumming": "off [fixed]", "tx_checksumming": "on", "tx_checksum_ipv4": "on", "tx_checksum_ip_generic": "off [fixed]", "tx_checksum_ipv6": "off [fixed]", "tx_checksum_fcoe_crc": "off [fixed]", "tx_checksum_sctp": "off [fixed]", "scatter_gather": "on", "tx_scatter_gather": "on", "tx_scatter_gather_fraglist": "off [fixed]", "tcp_segmentation_offload": "off", "tx_tcp_segmentation": "off [fixed]", "tx_tcp_ecn_segmentation": "off [fixed]", "tx_tcp_mangleid_segmentation": "off [fixed]", "tx_tcp6_segmentation": "off [fixed]", "tx_tcp_accecn_segmentation": "off [fixed]", "generic_segmentation_offload": "on", "generic_receive_offload": "on", "large_receive_offload": "off [fixed]", "rx_vlan_offload": "off [fixed]", "tx_vlan_offload": "off [fixed]", "ntuple_filters": "off [fixed]", "receive_hashing": "on", "highdma": "on", "rx_vlan_filter": "off [fixed]", "vlan_challenged": "off [fixed]", "tx_gso_robust": "off [fixed]", "tx_fcoe_segmentation": "off [fixed]", "tx_gre_segmentation": "off [fixed]", "tx_gre_csum_segmentation": "off [fixed]", "tx_ipxip4_segmentation": "off [fixed]", "tx_ipxip6_segmentation": "off [fixed]", "tx_udp_tnl_segmentation": "off [fixed]", "tx_udp_tnl_csum_segmentation": "off [fixed]", "tx_gso_partial": "off [fixed]", "tx_tunnel_remcsum_segmentation": "off [fixed]", "tx_sctp_segmentation": "off [fixed]", "tx_esp_segmentation": "off [fixed]", "tx_udp_segmentation": "off [fixed]", "tx_gso_list": "off [fixed]", "tx_nocache_copy": "off", "loopback": "off [fixed]", "rx_fcs": "off [fixed]", "rx_all": "off [fixed]", "tx_vlan_stag_hw_insert": "off [fixed]", "rx_vlan_stag_hw_parse": "off [fixed]", "rx_vlan_stag_filter": "off [fixed]", "l2_fwd_offload": "off [fixed]", "hw_tc_offload": "off [fixed]", "esp_hw_offload": "off [fixed]", "esp_tx_csum_hw_offload": "off [fixed]", "rx_udp_tunnel_port_offload": "off [fixed]", "tls_hw_tx_offload": "off [fixed]", "tls_hw_rx_offload": "off [fixed]", "rx_gro_hw": "off [fixed]", "tls_hw_record": "off [fixed]", "rx_gro_list": "off", "macsec_hw_offload": "off [fixed]", "rx_udp_gro_forwarding": "off", "hsr_tag_ins_offload": "off [fixed]", "hsr_tag_rm_offload": "off [fixed]", "hsr_fwd_offload": "off [fixed]", "hsr_dup_offload": "off [fixed]"}, "timestamping": [], "hw_timestamp_filters": []}, "ansible_default_ipv4": {"gateway": "10.0.0.1", "interface": "ens5", "address": "10.0.0.62", "broadcast": "", "netmask": "255.255.255.0", "network": "10.0.0.0", "prefix": "24", "macaddress": "02:ff:f5:ed:5c:69", "mtu": 9001, "type": "ether", "alias": "ens5"}, "ansible_default_ipv6": {}, "ansible_all_ipv4_addresses": ["10.0.0.62"], "ansible_all_ipv6_addresses": ["fe80::ff:f5ff:feed:5c69"], "ansible_locally_reachable_ips": {"ipv4": ["10.0.0.62", "127.0.0.0/8", "127.0.0.1"], "ipv6": ["::1", "fe80::ff:f5ff:feed:5c69"]}, "ansible_processor": ["0", "GenuineIntel", "Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz", "1", "GenuineIntel", "Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz"], "ansible_flags": ["fpu", "vme", "de", "pse", "tsc", "msr", "pae", "mce", "cx8", "apic", "sep", "mtrr", "pge", "mca", "cmov", "pat", "pse36", "clflush", "mmx", "fxsr", "sse", "sse2", "ss", "ht", "syscall", "nx", "pdpe1gb", "rdtscp", "lm", "constant_tsc", "rep_good", "nopl", "xtopology", "nonstop_tsc", "cpuid", "tsc_known_freq", "pni", "pclmulqdq", "ssse3", "fma", "cx16", "pcid", "sse4_1", "sse4_2", "x2apic", "movbe", "popcnt", "tsc_deadline_timer", "aes", "xsave", "avx", "f16c", "rdrand", "hypervisor", "lahf_lm", "abm", "3dnowprefetch", "cpuid_fault", "pti", "fsgsbase", "tsc_adjust", "bmi1", "avx2", "smep", "bmi2", "erms", "invpcid", "mpx", "avx512f", "avx512dq", "rdseed", "adx", "smap", "clflushopt", "clwb", "avx512cd", "avx512bw", "avx512vl", "xsaveopt", "xsavec", "xgetbv1", "xsaves", "ida", "arat", "pku", "ospke"], "ansible_processor_count": 1, "ansible_processor_cores": 1, "ansible_processor_threads_per_core": 2, "ansible_processor_vcpus": 2, "ansible_processor_nproc": 2, "ansible_memtotal_mb": 909, "ansible_memfree_mb": 101, "ansible_swaptotal_mb": 0, "ansible_swapfree_mb": 0, "ansible_memory_mb": {"real": {"total": 909, "used": 808, "free": 101}, "nocache": {"free": 598, "used": 311}, "swap": {"total": 0, "free": 0, "used": 0, "cached": 0}}, "ansible_bios_date": "10/16/2017", "ansible_bios_vendor": "Amazon EC2", "ansible_bios_version": "1.0", "ansible_board_asset_tag": "i-00c149ba508df2f91", "ansible_board_name": "NA", "ansible_board_serial": "NA", "ansible_board_vendor": "Amazon EC2", "ansible_board_version": "NA", "ansible_chassis_asset_tag": "Amazon EC2", "ansible_chassis_serial": "NA", "ansible_chassis_vendor": "Amazon EC2", "ansible_chassis_version": "NA", "ansible_form_factor": "Other", "ansible_product_name": "t3.micro", "ansible_product_serial": "ec2e0069-e7f4-56c6-3588-1db484882ad0", "ansible_product_uuid": "ec2e0069-e7f4-56c6-3588-1db484882ad0", "ansible_product_version": "NA", "ansible_system_vendor": "Amazon EC2", "ansible_devices": {"loop1": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "4096", "partitions": {}, "rotational": "0", "scheduler_mode": "none", "sectorsize": "512", "sectors": 58160, "size": "28.40 MB", "host": "", "holders": []}, "nvme0n1": {"virtual": 1, "links": {"ids": ["nvme-Amazon_Elastic_Block_Store_vol0bf992a42ad298d7e", "nvme-Amazon_Elastic_Block_Store_vol0bf992a42ad298d7e_1", "nvme-nvme.1d0f-766f6c3062663939326134326164323938643765-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001"], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": "Amazon Elastic Block Store", "sas_address": null, "sas_device_handle": null, "serial": "vol0bf992a42ad298d7e", "removable": "0", "support_discard": "0", "partitions": {"nvme0n1p16": {"links": {"ids": ["nvme-Amazon_Elastic_Block_Store_vol0bf992a42ad298d7e-part16", "nvme-Amazon_Elastic_Block_Store_vol0bf992a42ad298d7e_1-part16", "nvme-nvme.1d0f-766f6c3062663939326134326164323938643765-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001-part16"], "uuids": ["8c269e4c-91a0-436f-93d5-b1c6ba4625f1"], "labels": ["BOOT"], "masters": []}, "start": "227328", "sectorsize": 512, "sectors": 1869825, "size": "913.00 MB", "uuid": "8c269e4c-91a0-436f-93d5-b1c6ba4625f1", "holders": []}, "nvme0n1p1": {"links": {"ids": ["nvme-Amazon_Elastic_Block_Store_vol0bf992a42ad298d7e-part1", "nvme-Amazon_Elastic_Block_Store_vol0bf992a42ad298d7e_1-part1", "nvme-nvme.1d0f-766f6c3062663939326134326164323938643765-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001-part1"], "uuids": ["575dac9d-f0e8-4a98-b1eb-7e3e88d67e3d"], "labels": ["cloudimg-rootfs"], "masters": []}, "start": "2099200", "sectorsize": 512, "sectors": 18872287, "size": "9.00 GB", "uuid": "575dac9d-f0e8-4a98-b1eb-7e3e88d67e3d", "holders": []}, "nvme0n1p14": {"links": {"ids": ["nvme-Amazon_Elastic_Block_Store_vol0bf992a42ad298d7e-part14", "nvme-Amazon_Elastic_Block_Store_vol0bf992a42ad298d7e_1-part14", "nvme-nvme.1d0f-766f6c3062663939326134326164323938643765-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001-part14"], "uuids": [], "labels": [], "masters": []}, "start": "2048", "sectorsize": 512, "sectors": 8192, "size": "4.00 MB", "uuid": null, "holders": []}, "nvme0n1p15": {"links": {"ids": ["nvme-Amazon_Elastic_Block_Store_vol0bf992a42ad298d7e-part15", "nvme-Amazon_Elastic_Block_Store_vol0bf992a42ad298d7e_1-part15", "nvme-nvme.1d0f-766f6c3062663939326134326164323938643765-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001-part15"], "uuids": ["C4CD-4486"], "labels": ["UEFI"], "masters": []}, "start": "10240", "sectorsize": 512, "sectors": 217088, "size": "106.00 MB", "uuid": "C4CD-4486", "holders": []}}, "rotational": "0", "scheduler_mode": "none", "sectorsize": "512", "sectors": 20971520, "size": "10.00 GB", "host": "Non-Volatile memory controller: Amazon.com, Inc. NVMe EBS Controller", "holders": []}, "loop6": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "0", "partitions": {}, "rotational": "0", "scheduler_mode": "none", "sectorsize": "512", "sectors": 0, "size": "0.00 Bytes", "host": "", "holders": []}, "loop4": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "0", "partitions": {}, "rotational": "0", "scheduler_mode": "none", "sectorsize": "512", "sectors": 0, "size": "0.00 Bytes", "host": "", "holders": []}, "loop2": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "4096", "partitions": {}, "rotational": "0", "scheduler_mode": "none", "sectorsize": "512", "sectors": 66584, "size": "32.51 MB", "host": "", "holders": []}, "loop0": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "4096", "partitions": {}, "rotational": "0", "scheduler_mode": "none", "sectorsize": "512", "sectors": 151632, "size": "74.04 MB", "host": "", "holders": []}, "loop7": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "0", "partitions": {}, "rotational": "0", "scheduler_mode": "none", "sectorsize": "512", "sectors": 0, "size": "0.00 Bytes", "host": "", "holders": []}, "loop5": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "0", "partitions": {}, "rotational": "0", "scheduler_mode": "none", "sectorsize": "512", "sectors": 0, "size": "0.00 Bytes", "host": "", "holders": []}, "loop3": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "4096", "partitions": {}, "rotational": "0", "scheduler_mode": "none", "sectorsize": "512", "sectors": 0, "size": "0.00 Bytes", "host": "", "holders": []}}, "ansible_device_links": {"ids": {"nvme0n1p14": ["nvme-Amazon_Elastic_Block_Store_vol0bf992a42ad298d7e-part14", "nvme-Amazon_Elastic_Block_Store_vol0bf992a42ad298d7e_1-part14", "nvme-nvme.1d0f-766f6c3062663939326134326164323938643765-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001-part14"], "nvme0n1p15": ["nvme-Amazon_Elastic_Block_Store_vol0bf992a42ad298d7e-part15", "nvme-Amazon_Elastic_Block_Store_vol0bf992a42ad298d7e_1-part15", "nvme-nvme.1d0f-766f6c3062663939326134326164323938643765-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001-part15"], "nvme0n1p16": ["nvme-Amazon_Elastic_Block_Store_vol0bf992a42ad298d7e-part16", "nvme-Amazon_Elastic_Block_Store_vol0bf992a42ad298d7e_1-part16", "nvme-nvme.1d0f-766f6c3062663939326134326164323938643765-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001-part16"], "nvme0n1p1": ["nvme-Amazon_Elastic_Block_Store_vol0bf992a42ad298d7e-part1", "nvme-Amazon_Elastic_Block_Store_vol0bf992a42ad298d7e_1-part1", "nvme-nvme.1d0f-766f6c3062663939326134326164323938643765-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001-part1"], "nvme0n1": ["nvme-Amazon_Elastic_Block_Store_vol0bf992a42ad298d7e", "nvme-Amazon_Elastic_Block_Store_vol0bf992a42ad298d7e_1", "nvme-nvme.1d0f-766f6c3062663939326134326164323938643765-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001"]}, "uuids": {"nvme0n1p15": ["C4CD-4486"], "nvme0n1p16": ["8c269e4c-91a0-436f-93d5-b1c6ba4625f1"], "nvme0n1p1": ["575dac9d-f0e8-4a98-b1eb-7e3e88d67e3d"]}, "labels": {"nvme0n1p15": ["UEFI"], "nvme0n1p16": ["BOOT"], "nvme0n1p1": ["cloudimg-rootfs"]}, "masters": {}}, "ansible_uptime_seconds": 9840, "ansible_lvm": {"lvs": {}, "vgs": {}, "pvs": {}}, "ansible_mounts": [{"mount": "/snap/core22/3129", "device": "/dev/loop0", "fstype": "squashfs", "options": "ro,nodev,relatime,errors=continue,threads=single", "dump": 0, "passno": 0, "size_total": 77725696, "size_available": 0, "block_size": 131072, "block_total": 593, "block_available": 0, "block_used": 593, "inode_total": 14207, "inode_available": 0, "inode_used": 14207, "uuid": "N/A"}, {"mount": "/", "device": "/dev/root", "fstype": "ext4", "options": "rw,relatime,discard,errors=remount-ro,commit=30", "dump": 0, "passno": 0, "size_total": 9283444736, "size_available": 6825349120, "block_size": 4096, "block_total": 2266466, "block_available": 1666345, "block_used": 600121, "inode_total": 1179648, "inode_available": 1088948, "inode_used": 90700, "uuid": "575dac9d-f0e8-4a98-b1eb-7e3e88d67e3d"}, {"mount": "/snap/amazon-ssm-agent/13349", "device": "/dev/loop1", "fstype": "squashfs", "options": "ro,nodev,relatime,errors=continue,threads=single", "dump": 0, "passno": 0, "size_total": 29884416, "size_available": 0, "block_size": 131072, "block_total": 228, "block_available": 0, "block_used": 228, "inode_total": 14, "inode_available": 0, "inode_used": 14, "uuid": "N/A"}, {"mount": "/snap/snapd/28332", "device": "/dev/loop2", "fstype": "squashfs", "options": "ro,nodev,relatime,errors=continue,threads=single", "dump": 0, "passno": 0, "size_total": 34209792, "size_available": 0, "block_size": 131072, "block_total": 261, "block_available": 0, "block_used": 261, "inode_total": 623, "inode_available": 0, "inode_used": 623, "uuid": "N/A"}, {"mount": "/boot", "device": "/dev/nvme0n1p16", "fstype": "ext4", "options": "rw,relatime", "dump": 0, "passno": 0, "size_total": 923156480, "size_available": 739508224, "block_size": 4096, "block_total": 225380, "block_available": 180544, "block_used": 44836, "inode_total": 58496, "inode_available": 57895, "inode_used": 601, "uuid": "8c269e4c-91a0-436f-93d5-b1c6ba4625f1"}, {"mount": "/boot/efi", "device": "/dev/nvme0n1p15", "fstype": "vfat", "options": "rw,relatime,fmask=0077,dmask=0077,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro", "dump": 0, "passno": 0, "size_total": 109395456, "size_available": 102995968, "block_size": 512, "block_total": 213663, "block_available": 201164, "block_used": 12499, "inode_total": 0, "inode_available": 0, "inode_used": 0, "uuid": "C4CD-4486"}], "ansible_service_mgr": "systemd", "gather_subset": ["all"], "module_setup": true}, "invocation": {"module_args": {"gather_subset": ["all"], "gather_timeout": 10, "filter": [], "fact_path": "/etc/ansible/facts.d"}}}\n', b'')
+ok: [aiops-dev-bastion]
+<10.0.10.142> (255, b'', b'ssh: connect to host 10.0.10.142 port 22: Connection timed out\r\n')
+[ERROR]: Task failed: Failed to connect to the host via ssh: ssh: connect to host 10.0.10.142 port 22: Connection timed out
+
+Task failed.
+
+<<< caused by >>>
+
+Failed to connect to the host via ssh: ssh: connect to host 10.0.10.142 port 22: Connection timed out
+
+fatal: [aiops-dev-k3s]: UNREACHABLE! => {
+    "changed": false,
+    "msg": "Task failed: Failed to connect to the host via ssh: ssh: connect to host 10.0.10.142 port 22: Connection timed out",
+    "unreachable": true
+}
+<10.0.10.61> (255, b'', b'ssh: connect to host 10.0.10.61 port 22: Connection timed out\r\n')
+[ERROR]: Task failed: Failed to connect to the host via ssh: ssh: connect to host 10.0.10.61 port 22: Connection timed out
+
+Task failed.
+
+<<< caused by >>>
+
+Failed to connect to the host via ssh: ssh: connect to host 10.0.10.61 port 22: Connection timed out
+
+fatal: [aiops-dev-ci]: UNREACHABLE! => {
+    "changed": false,
+    "msg": "Task failed: Failed to connect to the host via ssh: ssh: connect to host 10.0.10.61 port 22: Connection timed out",
+    "unreachable": true
+}
+
+TASK [common : Update apt cache and apply safe upgrades] ***********************
+task path: /home/ubuntu/aiops-incident-copilot/ansible/roles/common/tasks/main.yml:2
+Using module file /usr/lib/python3/dist-packages/ansible/modules/apt.py
+Pipelining is enabled.
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-dmqphyalrnaauqbsrnatpfexfpoyxyvf ; /usr/bin/python3.12'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<32.195.71.79> Escalation succeeded
+<32.195.71.79> (0, b'\n{"changed": false, "msg": "Reading package lists...\\nBuilding dependency tree...\\nReading state information...\\nCalculating upgrade...\\n0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.\\n", "stdout": "Reading package lists...\\nBuilding dependency tree...\\nReading state information...\\nCalculating upgrade...\\n0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.\\n", "stderr": "", "invocation": {"module_args": {"cache_valid_time": 3600, "update_cache": true, "upgrade": "safe", "state": "present", "update_cache_retries": 5, "update_cache_retry_max_delay": 12, "purge": false, "force": false, "dpkg_options": "force-confdef,force-confold", "autoremove": false, "autoclean": false, "fail_on_autoremove": false, "only_upgrade": false, "force_apt_get": false, "clean": false, "allow_unauthenticated": false, "allow_downgrade": false, "allow_change_held_packages": false, "lock_timeout": 60, "auto_install_module_deps": true, "package": null, "deb": null, "default_release": null, "install_recommends": null, "policy_rc_d": null}}}\n', b'')
+ok: [aiops-dev-bastion] => {
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "allow_change_held_packages": false,
+            "allow_downgrade": false,
+            "allow_unauthenticated": false,
+            "auto_install_module_deps": true,
+            "autoclean": false,
+            "autoremove": false,
+            "cache_valid_time": 3600,
+            "clean": false,
+            "deb": null,
+            "default_release": null,
+            "dpkg_options": "force-confdef,force-confold",
+            "fail_on_autoremove": false,
+            "force": false,
+            "force_apt_get": false,
+            "install_recommends": null,
+            "lock_timeout": 60,
+            "only_upgrade": false,
+            "package": null,
+            "policy_rc_d": null,
+            "purge": false,
+            "state": "present",
+            "update_cache": true,
+            "update_cache_retries": 5,
+            "update_cache_retry_max_delay": 12,
+            "upgrade": "safe"
+        }
+    },
+    "msg": "Reading package lists...\nBuilding dependency tree...\nReading state information...\nCalculating upgrade...\n0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.\n",
+    "stderr": "",
+    "stderr_lines": [],
+    "stdout": "Reading package lists...\nBuilding dependency tree...\nReading state information...\nCalculating upgrade...\n0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.\n",
+    "stdout_lines": [
+        "Reading package lists...",
+        "Building dependency tree...",
+        "Reading state information...",
+        "Calculating upgrade...",
+        "0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded."
+    ]
+}
+
+TASK [common : Install baseline packages] **************************************
+task path: /home/ubuntu/aiops-incident-copilot/ansible/roles/common/tasks/main.yml:8
+Using module file /usr/lib/python3/dist-packages/ansible/modules/apt.py
+Pipelining is enabled.
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-kxftkkbtleqdhdohaccpllujmgdehuxi ; /usr/bin/python3.12'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<32.195.71.79> Escalation succeeded
+<32.195.71.79> (0, b'\n{"changed": false, "cache_updated": false, "cache_update_time": 1795448739, "invocation": {"module_args": {"name": ["curl", "wget", "vim", "htop", "jq", "unzip", "git", "net-tools", "chrony", "fail2ban", "unattended-upgrades"], "state": "present", "package": ["curl", "wget", "vim", "htop", "jq", "unzip", "git", "net-tools", "chrony", "fail2ban", "unattended-upgrades"], "update_cache_retries": 5, "update_cache_retry_max_delay": 12, "cache_valid_time": 0, "purge": false, "force": false, "upgrade": null, "dpkg_options": "force-confdef,force-confold", "autoremove": false, "autoclean": false, "fail_on_autoremove": false, "only_upgrade": false, "force_apt_get": false, "clean": false, "allow_unauthenticated": false, "allow_downgrade": false, "allow_change_held_packages": false, "lock_timeout": 60, "auto_install_module_deps": true, "update_cache": null, "deb": null, "default_release": null, "install_recommends": null, "policy_rc_d": null}}}\n', b'')
+ok: [aiops-dev-bastion] => {
+    "cache_update_time": 1795448739,
+    "cache_updated": false,
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "allow_change_held_packages": false,
+            "allow_downgrade": false,
+            "allow_unauthenticated": false,
+            "auto_install_module_deps": true,
+            "autoclean": false,
+            "autoremove": false,
+            "cache_valid_time": 0,
+            "clean": false,
+            "deb": null,
+            "default_release": null,
+            "dpkg_options": "force-confdef,force-confold",
+            "fail_on_autoremove": false,
+            "force": false,
+            "force_apt_get": false,
+            "install_recommends": null,
+            "lock_timeout": 60,
+            "name": [
+                "curl",
+                "wget",
+                "vim",
+                "htop",
+                "jq",
+                "unzip",
+                "git",
+                "net-tools",
+                "chrony",
+                "fail2ban",
+                "unattended-upgrades"
+            ],
+            "only_upgrade": false,
+            "package": [
+                "curl",
+                "wget",
+                "vim",
+                "htop",
+                "jq",
+                "unzip",
+                "git",
+                "net-tools",
+                "chrony",
+                "fail2ban",
+                "unattended-upgrades"
+            ],
+            "policy_rc_d": null,
+            "purge": false,
+            "state": "present",
+            "update_cache": null,
+            "update_cache_retries": 5,
+            "update_cache_retry_max_delay": 12,
+            "upgrade": null
+        }
+    }
+}
+
+TASK [common : Set hostname from the Name tag] *********************************
+task path: /home/ubuntu/aiops-incident-copilot/ansible/roles/common/tasks/main.yml:13
+Using module file /usr/lib/python3/dist-packages/ansible/modules/hostname.py
+Pipelining is enabled.
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-udhtzinnqzpfzcuilqvgwbbifhqgfubr ; /usr/bin/python3.12'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<32.195.71.79> Escalation succeeded
+<32.195.71.79> (0, b'\n{"changed": false, "name": "aiops-dev-bastion", "ansible_facts": {"ansible_hostname": "aiops-dev-bastion", "ansible_nodename": "aiops-dev-bastion", "ansible_fqdn": "ip-10-0-0-62.ec2.internal", "ansible_domain": "ec2.internal"}, "invocation": {"module_args": {"name": "aiops-dev-bastion", "use": null}}}\n', b'')
+ok: [aiops-dev-bastion] => {
+    "ansible_facts": {
+        "ansible_domain": "ec2.internal",
+        "ansible_fqdn": "ip-10-0-0-62.ec2.internal",
+        "ansible_hostname": "aiops-dev-bastion",
+        "ansible_nodename": "aiops-dev-bastion"
+    },
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "name": "aiops-dev-bastion",
+            "use": null
+        }
+    },
+    "name": "aiops-dev-bastion"
+}
+
+TASK [common : Harden sshd with a drop-in config (00- prefix so it wins)] ******
+task path: /home/ubuntu/aiops-incident-copilot/ansible/roles/common/tasks/main.yml:17
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'echo ~ubuntu && sleep 0'"'"''
+<32.195.71.79> (0, b'/home/ubuntu\n', b'')
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/ubuntu/.ansible/tmp `"&& mkdir "` echo /home/ubuntu/.ansible/tmp/ansible-tmp-1795451692.197863-160503-271879205023865 `" && echo ansible-tmp-1795451692.197863-160503-271879205023865="` echo /home/ubuntu/.ansible/tmp/ansible-tmp-1795451692.197863-160503-271879205023865 `" ) && sleep 0'"'"''
+<32.195.71.79> (0, b'ansible-tmp-1795451692.197863-160503-271879205023865=/home/ubuntu/.ansible/tmp/ansible-tmp-1795451692.197863-160503-271879205023865\n', b'')
+Using module file /usr/lib/python3/dist-packages/ansible/modules/stat.py
+Pipelining is enabled.
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-ntehjndupzodljquwpwigcyfoapdeivs ; /usr/bin/python3.12'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<32.195.71.79> Escalation succeeded
+<32.195.71.79> (0, b'\n{"changed": false, "stat": {"exists": true, "path": "/etc/ssh/sshd_config.d/00-hardening.conf", "mode": "0644", "isdir": false, "ischr": false, "isblk": false, "isreg": true, "isfifo": false, "islnk": false, "issock": false, "uid": 0, "gid": 0, "size": 173, "inode": 303219, "dev": 66305, "nlink": 1, "atime": 1795448777.1164985, "mtime": 1795448759.7633193, "ctime": 1795448760.2053237, "wusr": true, "rusr": true, "xusr": false, "wgrp": false, "rgrp": true, "xgrp": false, "woth": false, "roth": true, "xoth": false, "isuid": false, "isgid": false, "blocks": 8, "block_size": 4096, "device_type": 0, "readable": true, "writeable": true, "executable": false, "pw_name": "root", "gr_name": "root", "checksum": "4d0dc3993510b536dd1a59914ae6cd209fc8be32", "mimetype": "text/plain", "charset": "us-ascii", "version": "3840405866", "attributes": ["extents"], "attr_flags": "e"}, "invocation": {"module_args": {"path": "/etc/ssh/sshd_config.d/00-hardening.conf", "follow": false, "get_checksum": true, "get_size": false, "checksum_algorithm": "sha1", "get_mime": true, "get_attributes": true, "get_selinux_context": false}}}\n', b'')
+Using module file /usr/lib/python3/dist-packages/ansible/modules/file.py
+Pipelining is enabled.
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-cejknoziedmhqikseyhpfalsfbtuqcow ; /usr/bin/python3.12'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<32.195.71.79> Escalation succeeded
+<32.195.71.79> (0, b'\n{"path": "/etc/ssh/sshd_config.d/00-hardening.conf", "changed": false, "uid": 0, "gid": 0, "owner": "root", "group": "root", "mode": "0644", "state": "file", "size": 173, "invocation": {"module_args": {"mode": "0644", "dest": "/etc/ssh/sshd_config.d/00-hardening.conf", "_original_basename": ".m6d9yptq", "recurse": false, "state": "file", "path": "/etc/ssh/sshd_config.d/00-hardening.conf", "force": false, "follow": true, "modification_time_format": "%Y%m%d%H%M.%S", "access_time_format": "%Y%m%d%H%M.%S", "unsafe_writes": false, "_diff_peek": null, "src": null, "modification_time": null, "access_time": null, "owner": null, "group": null, "seuser": null, "serole": null, "selevel": null, "setype": null, "attributes": null}}}\n', b'')
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'rm -f -r /home/ubuntu/.ansible/tmp/ansible-tmp-1795451692.197863-160503-271879205023865/ > /dev/null 2>&1 && sleep 0'"'"''
+<32.195.71.79> (0, b'', b'')
+ok: [aiops-dev-bastion] => {
+    "changed": false,
+    "checksum": "4d0dc3993510b536dd1a59914ae6cd209fc8be32",
+    "dest": "/etc/ssh/sshd_config.d/00-hardening.conf",
+    "diff": [],
+    "gid": 0,
+    "group": "root",
+    "invocation": {
+        "module_args": {
+            "_diff_peek": null,
+            "_original_basename": ".m6d9yptq",
+            "access_time": null,
+            "access_time_format": "%Y%m%d%H%M.%S",
+            "attributes": null,
+            "dest": "/etc/ssh/sshd_config.d/00-hardening.conf",
+            "follow": true,
+            "force": false,
+            "group": null,
+            "mode": "0644",
+            "modification_time": null,
+            "modification_time_format": "%Y%m%d%H%M.%S",
+            "owner": null,
+            "path": "/etc/ssh/sshd_config.d/00-hardening.conf",
+            "recurse": false,
+            "selevel": null,
+            "serole": null,
+            "setype": null,
+            "seuser": null,
+            "src": null,
+            "state": "file",
+            "unsafe_writes": false
+        }
+    },
+    "mode": "0644",
+    "owner": "root",
+    "path": "/etc/ssh/sshd_config.d/00-hardening.conf",
+    "size": 173,
+    "state": "file",
+    "uid": 0
+}
+
+TASK [common : Apply kernel network hardening] *********************************
+task path: /home/ubuntu/aiops-incident-copilot/ansible/roles/common/tasks/main.yml:33
+Using module file /usr/lib/python3/dist-packages/ansible_collections/ansible/posix/plugins/modules/sysctl.py
+Pipelining is enabled.
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-qkcsvkqgxjxktagneymgrzzfzjjyynrp ; /usr/bin/python3.12'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<32.195.71.79> Escalation succeeded
+<32.195.71.79> (0, b'\n{"changed": false, "invocation": {"module_args": {"name": "net.ipv4.tcp_syncookies", "reload": true, "state": "present", "sysctl_file": "/etc/sysctl.d/90-hardening.conf", "value": "1", "sysctl_set": false, "ignoreerrors": false}}, "deprecations": [{"event": {"msg": "Importing \'to_native\' from \'ansible.module_utils._text\' is deprecated.", "formatted_traceback": "Traceback (most recent call last):\\n  File \\"<stdin>\\", line 266, in <module>\\n  File \\"<stdin>\\", line 260, in _ansiballz_main\\n  File \\"<stdin>\\", line 140, in invoke_module\\n  File \\"/tmp/ansible_ansible.posix.sysctl_payload_k6_dz3ui/ansible_ansible.posix.sysctl_payload.zip/ansible/module_utils/_internal/_ansiballz/_loader.py\\", line 35, in run_module\\n    _run_module(\\n  File \\"/tmp/ansible_ansible.posix.sysctl_payload_k6_dz3ui/ansible_ansible.posix.sysctl_payload.zip/ansible/module_utils/_internal/_ansiballz/_loader.py\\", line 62, in _run_module\\n    runpy.run_module(mod_name=module_fqn, init_globals=init_globals, run_name=\'__main__\', alter_sys=True)\\n  File \\"<frozen runpy>\\", line 226, in run_module\\n  File \\"<frozen runpy>\\", line 98, in _run_module_code\\n  File \\"<frozen runpy>\\", line 88, in _run_code\\n  File \\"/tmp/ansible_ansible.posix.sysctl_payload_k6_dz3ui/ansible_ansible.posix.sysctl_payload.zip/ansible_collections/ansible/posix/plugins/modules/sysctl.py\\", line 108, in <module>\\n    from ansible.module_utils._text import to_native\\n  File \\"/tmp/ansible_ansible.posix.sysctl_payload_k6_dz3ui/ansible_ansible.posix.sysctl_payload.zip/ansible/module_utils/_text.py\\", line 30, in __getattr__\\n    _warnings.deprecate(\\nMessage: Importing \'to_native\' from \'ansible.module_utils._text\' is deprecated.\\n", "help_text": "Use ansible.module_utils.common.text.converters instead.", "__ansible_type": "Event"}, "deprecator": {"resolved_name": "ansible.builtin", "type": null, "__ansible_type": "PluginInfo"}, "version": "2.24", "__ansible_type": "DeprecationSummary"}]}\n', b'')
+ok: [aiops-dev-bastion] => (item={'key': 'net.ipv4.tcp_syncookies', 'value': 1}) => {
+    "ansible_loop_var": "item",
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "ignoreerrors": false,
+            "name": "net.ipv4.tcp_syncookies",
+            "reload": true,
+            "state": "present",
+            "sysctl_file": "/etc/sysctl.d/90-hardening.conf",
+            "sysctl_set": false,
+            "value": "1"
+        }
+    },
+    "item": {
+        "key": "net.ipv4.tcp_syncookies",
+        "value": 1
+    }
+}
+Using module file /usr/lib/python3/dist-packages/ansible_collections/ansible/posix/plugins/modules/sysctl.py
+Pipelining is enabled.
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-tqjutvbbtidxyamihxhhbvxthbzfwejt ; /usr/bin/python3.12'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<32.195.71.79> Escalation succeeded
+<32.195.71.79> (0, b'\n{"changed": false, "invocation": {"module_args": {"name": "net.ipv4.conf.all.accept_redirects", "reload": true, "state": "present", "sysctl_file": "/etc/sysctl.d/90-hardening.conf", "value": "0", "sysctl_set": false, "ignoreerrors": false}}, "deprecations": [{"event": {"msg": "Importing \'to_native\' from \'ansible.module_utils._text\' is deprecated.", "formatted_traceback": "Traceback (most recent call last):\\n  File \\"<stdin>\\", line 266, in <module>\\n  File \\"<stdin>\\", line 260, in _ansiballz_main\\n  File \\"<stdin>\\", line 140, in invoke_module\\n  File \\"/tmp/ansible_ansible.posix.sysctl_payload_xejumn80/ansible_ansible.posix.sysctl_payload.zip/ansible/module_utils/_internal/_ansiballz/_loader.py\\", line 35, in run_module\\n    _run_module(\\n  File \\"/tmp/ansible_ansible.posix.sysctl_payload_xejumn80/ansible_ansible.posix.sysctl_payload.zip/ansible/module_utils/_internal/_ansiballz/_loader.py\\", line 62, in _run_module\\n    runpy.run_module(mod_name=module_fqn, init_globals=init_globals, run_name=\'__main__\', alter_sys=True)\\n  File \\"<frozen runpy>\\", line 226, in run_module\\n  File \\"<frozen runpy>\\", line 98, in _run_module_code\\n  File \\"<frozen runpy>\\", line 88, in _run_code\\n  File \\"/tmp/ansible_ansible.posix.sysctl_payload_xejumn80/ansible_ansible.posix.sysctl_payload.zip/ansible_collections/ansible/posix/plugins/modules/sysctl.py\\", line 108, in <module>\\n    from ansible.module_utils._text import to_native\\n  File \\"/tmp/ansible_ansible.posix.sysctl_payload_xejumn80/ansible_ansible.posix.sysctl_payload.zip/ansible/module_utils/_text.py\\", line 30, in __getattr__\\n    _warnings.deprecate(\\nMessage: Importing \'to_native\' from \'ansible.module_utils._text\' is deprecated.\\n", "help_text": "Use ansible.module_utils.common.text.converters instead.", "__ansible_type": "Event"}, "deprecator": {"resolved_name": "ansible.builtin", "type": null, "__ansible_type": "PluginInfo"}, "version": "2.24", "__ansible_type": "DeprecationSummary"}]}\n', b'')
+ok: [aiops-dev-bastion] => (item={'key': 'net.ipv4.conf.all.accept_redirects', 'value': 0}) => {
+    "ansible_loop_var": "item",
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "ignoreerrors": false,
+            "name": "net.ipv4.conf.all.accept_redirects",
+            "reload": true,
+            "state": "present",
+            "sysctl_file": "/etc/sysctl.d/90-hardening.conf",
+            "sysctl_set": false,
+            "value": "0"
+        }
+    },
+    "item": {
+        "key": "net.ipv4.conf.all.accept_redirects",
+        "value": 0
+    }
+}
+Using module file /usr/lib/python3/dist-packages/ansible_collections/ansible/posix/plugins/modules/sysctl.py
+Pipelining is enabled.
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-olndekghrccpnxyvghztxmmuirnsdntw ; /usr/bin/python3.12'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<32.195.71.79> Escalation succeeded
+<32.195.71.79> (0, b'\n{"changed": false, "invocation": {"module_args": {"name": "net.ipv4.conf.default.accept_redirects", "reload": true, "state": "present", "sysctl_file": "/etc/sysctl.d/90-hardening.conf", "value": "0", "sysctl_set": false, "ignoreerrors": false}}, "deprecations": [{"event": {"msg": "Importing \'to_native\' from \'ansible.module_utils._text\' is deprecated.", "formatted_traceback": "Traceback (most recent call last):\\n  File \\"<stdin>\\", line 266, in <module>\\n  File \\"<stdin>\\", line 260, in _ansiballz_main\\n  File \\"<stdin>\\", line 140, in invoke_module\\n  File \\"/tmp/ansible_ansible.posix.sysctl_payload_vvpuk21d/ansible_ansible.posix.sysctl_payload.zip/ansible/module_utils/_internal/_ansiballz/_loader.py\\", line 35, in run_module\\n    _run_module(\\n  File \\"/tmp/ansible_ansible.posix.sysctl_payload_vvpuk21d/ansible_ansible.posix.sysctl_payload.zip/ansible/module_utils/_internal/_ansiballz/_loader.py\\", line 62, in _run_module\\n    runpy.run_module(mod_name=module_fqn, init_globals=init_globals, run_name=\'__main__\', alter_sys=True)\\n  File \\"<frozen runpy>\\", line 226, in run_module\\n  File \\"<frozen runpy>\\", line 98, in _run_module_code\\n  File \\"<frozen runpy>\\", line 88, in _run_code\\n  File \\"/tmp/ansible_ansible.posix.sysctl_payload_vvpuk21d/ansible_ansible.posix.sysctl_payload.zip/ansible_collections/ansible/posix/plugins/modules/sysctl.py\\", line 108, in <module>\\n    from ansible.module_utils._text import to_native\\n  File \\"/tmp/ansible_ansible.posix.sysctl_payload_vvpuk21d/ansible_ansible.posix.sysctl_payload.zip/ansible/module_utils/_text.py\\", line 30, in __getattr__\\n    _warnings.deprecate(\\nMessage: Importing \'to_native\' from \'ansible.module_utils._text\' is deprecated.\\n", "help_text": "Use ansible.module_utils.common.text.converters instead.", "__ansible_type": "Event"}, "deprecator": {"resolved_name": "ansible.builtin", "type": null, "__ansible_type": "PluginInfo"}, "version": "2.24", "__ansible_type": "DeprecationSummary"}]}\n', b'')
+ok: [aiops-dev-bastion] => (item={'key': 'net.ipv4.conf.default.accept_redirects', 'value': 0}) => {
+    "ansible_loop_var": "item",
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "ignoreerrors": false,
+            "name": "net.ipv4.conf.default.accept_redirects",
+            "reload": true,
+            "state": "present",
+            "sysctl_file": "/etc/sysctl.d/90-hardening.conf",
+            "sysctl_set": false,
+            "value": "0"
+        }
+    },
+    "item": {
+        "key": "net.ipv4.conf.default.accept_redirects",
+        "value": 0
+    }
+}
+Using module file /usr/lib/python3/dist-packages/ansible_collections/ansible/posix/plugins/modules/sysctl.py
+Pipelining is enabled.
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-kdcyvovqjclbacounrjuyttunrzrulbq ; /usr/bin/python3.12'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<32.195.71.79> Escalation succeeded
+<32.195.71.79> (0, b'\n{"changed": false, "invocation": {"module_args": {"name": "net.ipv4.conf.all.send_redirects", "reload": true, "state": "present", "sysctl_file": "/etc/sysctl.d/90-hardening.conf", "value": "0", "sysctl_set": false, "ignoreerrors": false}}, "deprecations": [{"event": {"msg": "Importing \'to_native\' from \'ansible.module_utils._text\' is deprecated.", "formatted_traceback": "Traceback (most recent call last):\\n  File \\"<stdin>\\", line 266, in <module>\\n  File \\"<stdin>\\", line 260, in _ansiballz_main\\n  File \\"<stdin>\\", line 140, in invoke_module\\n  File \\"/tmp/ansible_ansible.posix.sysctl_payload_cpku2x2m/ansible_ansible.posix.sysctl_payload.zip/ansible/module_utils/_internal/_ansiballz/_loader.py\\", line 35, in run_module\\n    _run_module(\\n  File \\"/tmp/ansible_ansible.posix.sysctl_payload_cpku2x2m/ansible_ansible.posix.sysctl_payload.zip/ansible/module_utils/_internal/_ansiballz/_loader.py\\", line 62, in _run_module\\n    runpy.run_module(mod_name=module_fqn, init_globals=init_globals, run_name=\'__main__\', alter_sys=True)\\n  File \\"<frozen runpy>\\", line 226, in run_module\\n  File \\"<frozen runpy>\\", line 98, in _run_module_code\\n  File \\"<frozen runpy>\\", line 88, in _run_code\\n  File \\"/tmp/ansible_ansible.posix.sysctl_payload_cpku2x2m/ansible_ansible.posix.sysctl_payload.zip/ansible_collections/ansible/posix/plugins/modules/sysctl.py\\", line 108, in <module>\\n    from ansible.module_utils._text import to_native\\n  File \\"/tmp/ansible_ansible.posix.sysctl_payload_cpku2x2m/ansible_ansible.posix.sysctl_payload.zip/ansible/module_utils/_text.py\\", line 30, in __getattr__\\n    _warnings.deprecate(\\nMessage: Importing \'to_native\' from \'ansible.module_utils._text\' is deprecated.\\n", "help_text": "Use ansible.module_utils.common.text.converters instead.", "__ansible_type": "Event"}, "deprecator": {"resolved_name": "ansible.builtin", "type": null, "__ansible_type": "PluginInfo"}, "version": "2.24", "__ansible_type": "DeprecationSummary"}]}\n', b'')
+ok: [aiops-dev-bastion] => (item={'key': 'net.ipv4.conf.all.send_redirects', 'value': 0}) => {
+    "ansible_loop_var": "item",
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "ignoreerrors": false,
+            "name": "net.ipv4.conf.all.send_redirects",
+            "reload": true,
+            "state": "present",
+            "sysctl_file": "/etc/sysctl.d/90-hardening.conf",
+            "sysctl_set": false,
+            "value": "0"
+        }
+    },
+    "item": {
+        "key": "net.ipv4.conf.all.send_redirects",
+        "value": 0
+    }
+}
+Using module file /usr/lib/python3/dist-packages/ansible_collections/ansible/posix/plugins/modules/sysctl.py
+Pipelining is enabled.
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-cpcwywjgzffvzxfverbbwdstfuxrkllg ; /usr/bin/python3.12'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<32.195.71.79> Escalation succeeded
+<32.195.71.79> (0, b'\n{"changed": false, "invocation": {"module_args": {"name": "net.ipv4.icmp_echo_ignore_broadcasts", "reload": true, "state": "present", "sysctl_file": "/etc/sysctl.d/90-hardening.conf", "value": "1", "sysctl_set": false, "ignoreerrors": false}}, "deprecations": [{"event": {"msg": "Importing \'to_native\' from \'ansible.module_utils._text\' is deprecated.", "formatted_traceback": "Traceback (most recent call last):\\n  File \\"<stdin>\\", line 266, in <module>\\n  File \\"<stdin>\\", line 260, in _ansiballz_main\\n  File \\"<stdin>\\", line 140, in invoke_module\\n  File \\"/tmp/ansible_ansible.posix.sysctl_payload_z7432_rp/ansible_ansible.posix.sysctl_payload.zip/ansible/module_utils/_internal/_ansiballz/_loader.py\\", line 35, in run_module\\n    _run_module(\\n  File \\"/tmp/ansible_ansible.posix.sysctl_payload_z7432_rp/ansible_ansible.posix.sysctl_payload.zip/ansible/module_utils/_internal/_ansiballz/_loader.py\\", line 62, in _run_module\\n    runpy.run_module(mod_name=module_fqn, init_globals=init_globals, run_name=\'__main__\', alter_sys=True)\\n  File \\"<frozen runpy>\\", line 226, in run_module\\n  File \\"<frozen runpy>\\", line 98, in _run_module_code\\n  File \\"<frozen runpy>\\", line 88, in _run_code\\n  File \\"/tmp/ansible_ansible.posix.sysctl_payload_z7432_rp/ansible_ansible.posix.sysctl_payload.zip/ansible_collections/ansible/posix/plugins/modules/sysctl.py\\", line 108, in <module>\\n    from ansible.module_utils._text import to_native\\n  File \\"/tmp/ansible_ansible.posix.sysctl_payload_z7432_rp/ansible_ansible.posix.sysctl_payload.zip/ansible/module_utils/_text.py\\", line 30, in __getattr__\\n    _warnings.deprecate(\\nMessage: Importing \'to_native\' from \'ansible.module_utils._text\' is deprecated.\\n", "help_text": "Use ansible.module_utils.common.text.converters instead.", "__ansible_type": "Event"}, "deprecator": {"resolved_name": "ansible.builtin", "type": null, "__ansible_type": "PluginInfo"}, "version": "2.24", "__ansible_type": "DeprecationSummary"}]}\n', b'')
+ok: [aiops-dev-bastion] => (item={'key': 'net.ipv4.icmp_echo_ignore_broadcasts', 'value': 1}) => {
+    "ansible_loop_var": "item",
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "ignoreerrors": false,
+            "name": "net.ipv4.icmp_echo_ignore_broadcasts",
+            "reload": true,
+            "state": "present",
+            "sysctl_file": "/etc/sysctl.d/90-hardening.conf",
+            "sysctl_set": false,
+            "value": "1"
+        }
+    },
+    "item": {
+        "key": "net.ipv4.icmp_echo_ignore_broadcasts",
+        "value": 1
+    }
+}
+Using module file /usr/lib/python3/dist-packages/ansible_collections/ansible/posix/plugins/modules/sysctl.py
+Pipelining is enabled.
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-wozpafevipzslbjulfsgivhkbvefmptc ; /usr/bin/python3.12'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<32.195.71.79> Escalation succeeded
+<32.195.71.79> (0, b'\n{"changed": false, "invocation": {"module_args": {"name": "kernel.kptr_restrict", "reload": true, "state": "present", "sysctl_file": "/etc/sysctl.d/90-hardening.conf", "value": "2", "sysctl_set": false, "ignoreerrors": false}}, "deprecations": [{"event": {"msg": "Importing \'to_native\' from \'ansible.module_utils._text\' is deprecated.", "formatted_traceback": "Traceback (most recent call last):\\n  File \\"<stdin>\\", line 266, in <module>\\n  File \\"<stdin>\\", line 260, in _ansiballz_main\\n  File \\"<stdin>\\", line 140, in invoke_module\\n  File \\"/tmp/ansible_ansible.posix.sysctl_payload_8rqt9hnl/ansible_ansible.posix.sysctl_payload.zip/ansible/module_utils/_internal/_ansiballz/_loader.py\\", line 35, in run_module\\n    _run_module(\\n  File \\"/tmp/ansible_ansible.posix.sysctl_payload_8rqt9hnl/ansible_ansible.posix.sysctl_payload.zip/ansible/module_utils/_internal/_ansiballz/_loader.py\\", line 62, in _run_module\\n    runpy.run_module(mod_name=module_fqn, init_globals=init_globals, run_name=\'__main__\', alter_sys=True)\\n  File \\"<frozen runpy>\\", line 226, in run_module\\n  File \\"<frozen runpy>\\", line 98, in _run_module_code\\n  File \\"<frozen runpy>\\", line 88, in _run_code\\n  File \\"/tmp/ansible_ansible.posix.sysctl_payload_8rqt9hnl/ansible_ansible.posix.sysctl_payload.zip/ansible_collections/ansible/posix/plugins/modules/sysctl.py\\", line 108, in <module>\\n    from ansible.module_utils._text import to_native\\n  File \\"/tmp/ansible_ansible.posix.sysctl_payload_8rqt9hnl/ansible_ansible.posix.sysctl_payload.zip/ansible/module_utils/_text.py\\", line 30, in __getattr__\\n    _warnings.deprecate(\\nMessage: Importing \'to_native\' from \'ansible.module_utils._text\' is deprecated.\\n", "help_text": "Use ansible.module_utils.common.text.converters instead.", "__ansible_type": "Event"}, "deprecator": {"resolved_name": "ansible.builtin", "type": null, "__ansible_type": "PluginInfo"}, "version": "2.24", "__ansible_type": "DeprecationSummary"}]}\n', b'')
+ok: [aiops-dev-bastion] => (item={'key': 'kernel.kptr_restrict', 'value': 2}) => {
+    "ansible_loop_var": "item",
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "ignoreerrors": false,
+            "name": "kernel.kptr_restrict",
+            "reload": true,
+            "state": "present",
+            "sysctl_file": "/etc/sysctl.d/90-hardening.conf",
+            "sysctl_set": false,
+            "value": "2"
+        }
+    },
+    "item": {
+        "key": "kernel.kptr_restrict",
+        "value": 2
+    }
+}
+
+TASK [common : Configure fail2ban for sshd] ************************************
+task path: /home/ubuntu/aiops-incident-copilot/ansible/roles/common/tasks/main.yml:42
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'echo ~ubuntu && sleep 0'"'"''
+<32.195.71.79> (0, b'/home/ubuntu\n', b'')
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/ubuntu/.ansible/tmp `"&& mkdir "` echo /home/ubuntu/.ansible/tmp/ansible-tmp-1795451695.17442-160516-72524239306685 `" && echo ansible-tmp-1795451695.17442-160516-72524239306685="` echo /home/ubuntu/.ansible/tmp/ansible-tmp-1795451695.17442-160516-72524239306685 `" ) && sleep 0'"'"''
+<32.195.71.79> (0, b'ansible-tmp-1795451695.17442-160516-72524239306685=/home/ubuntu/.ansible/tmp/ansible-tmp-1795451695.17442-160516-72524239306685\n', b'')
+Using module file /usr/lib/python3/dist-packages/ansible/modules/stat.py
+Pipelining is enabled.
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-hwtairjplfrnxkedapsnjmilgzeucqdl ; /usr/bin/python3.12'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<32.195.71.79> Escalation succeeded
+<32.195.71.79> (0, b'\n{"changed": false, "stat": {"exists": true, "path": "/etc/fail2ban/jail.d/sshd-local.conf", "mode": "0644", "isdir": false, "ischr": false, "isblk": false, "isreg": true, "isfifo": false, "islnk": false, "issock": false, "uid": 0, "gid": 0, "size": 84, "inode": 303220, "dev": 66305, "nlink": 1, "atime": 1795448778.0815084, "mtime": 1795448764.782371, "ctime": 1795448765.075374, "wusr": true, "rusr": true, "xusr": false, "wgrp": false, "rgrp": true, "xgrp": false, "woth": false, "roth": true, "xoth": false, "isuid": false, "isgid": false, "blocks": 8, "block_size": 4096, "device_type": 0, "readable": true, "writeable": true, "executable": false, "pw_name": "root", "gr_name": "root", "checksum": "d39f68e92360fafadce136193f47ea195957c2dd", "mimetype": "text/plain", "charset": "us-ascii", "version": "2046559528", "attributes": ["extents"], "attr_flags": "e"}, "invocation": {"module_args": {"path": "/etc/fail2ban/jail.d/sshd-local.conf", "follow": false, "get_checksum": true, "get_size": false, "checksum_algorithm": "sha1", "get_mime": true, "get_attributes": true, "get_selinux_context": false}}}\n', b'')
+Using module file /usr/lib/python3/dist-packages/ansible/modules/file.py
+Pipelining is enabled.
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-yepagfnfsyvbnxhnospzyzgknkrnscuw ; /usr/bin/python3.12'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<32.195.71.79> Escalation succeeded
+<32.195.71.79> (0, b'\n{"path": "/etc/fail2ban/jail.d/sshd-local.conf", "changed": false, "uid": 0, "gid": 0, "owner": "root", "group": "root", "mode": "0644", "state": "file", "size": 84, "invocation": {"module_args": {"mode": "0644", "dest": "/etc/fail2ban/jail.d/sshd-local.conf", "_original_basename": ".2r3631uf", "recurse": false, "state": "file", "path": "/etc/fail2ban/jail.d/sshd-local.conf", "force": false, "follow": true, "modification_time_format": "%Y%m%d%H%M.%S", "access_time_format": "%Y%m%d%H%M.%S", "unsafe_writes": false, "_diff_peek": null, "src": null, "modification_time": null, "access_time": null, "owner": null, "group": null, "seuser": null, "serole": null, "selevel": null, "setype": null, "attributes": null}}}\n', b'')
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'rm -f -r /home/ubuntu/.ansible/tmp/ansible-tmp-1795451695.17442-160516-72524239306685/ > /dev/null 2>&1 && sleep 0'"'"''
+<32.195.71.79> (0, b'', b'')
+ok: [aiops-dev-bastion] => {
+    "changed": false,
+    "checksum": "d39f68e92360fafadce136193f47ea195957c2dd",
+    "dest": "/etc/fail2ban/jail.d/sshd-local.conf",
+    "diff": [],
+    "gid": 0,
+    "group": "root",
+    "invocation": {
+        "module_args": {
+            "_diff_peek": null,
+            "_original_basename": ".2r3631uf",
+            "access_time": null,
+            "access_time_format": "%Y%m%d%H%M.%S",
+            "attributes": null,
+            "dest": "/etc/fail2ban/jail.d/sshd-local.conf",
+            "follow": true,
+            "force": false,
+            "group": null,
+            "mode": "0644",
+            "modification_time": null,
+            "modification_time_format": "%Y%m%d%H%M.%S",
+            "owner": null,
+            "path": "/etc/fail2ban/jail.d/sshd-local.conf",
+            "recurse": false,
+            "selevel": null,
+            "serole": null,
+            "setype": null,
+            "seuser": null,
+            "src": null,
+            "state": "file",
+            "unsafe_writes": false
+        }
+    },
+    "mode": "0644",
+    "owner": "root",
+    "path": "/etc/fail2ban/jail.d/sshd-local.conf",
+    "size": 84,
+    "state": "file",
+    "uid": 0
+}
+
+TASK [common : Enable fail2ban] ************************************************
+task path: /home/ubuntu/aiops-incident-copilot/ansible/roles/common/tasks/main.yml:55
+Using module file /usr/lib/python3/dist-packages/ansible/modules/systemd.py
+Pipelining is enabled.
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-kemqclhhhfonsmymrvkttkaaxwywemjs ; /usr/bin/python3.12'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<32.195.71.79> Escalation succeeded
+<32.195.71.79> (0, b'\n{"name": "fail2ban", "changed": false, "status": {"Type": "simple", "ExitType": "main", "Restart": "on-failure", "RestartMode": "normal", "PIDFile": "/run/fail2ban/fail2ban.pid", "NotifyAccess": "none", "RestartUSec": "100ms", "RestartSteps": "0", "RestartMaxDelayUSec": "infinity", "RestartUSecNext": "100ms", "TimeoutStartUSec": "1min 30s", "TimeoutStopUSec": "1min 30s", "TimeoutAbortUSec": "1min 30s", "TimeoutStartFailureMode": "terminate", "TimeoutStopFailureMode": "terminate", "RuntimeMaxUSec": "infinity", "RuntimeRandomizedExtraUSec": "0", "WatchdogUSec": "0", "WatchdogTimestampMonotonic": "0", "RootDirectoryStartOnly": "no", "RemainAfterExit": "no", "GuessMainPID": "yes", "RestartPreventExitStatus": "0 255", "MainPID": "3772", "ControlPID": "0", "FileDescriptorStoreMax": "0", "NFileDescriptorStore": "0", "FileDescriptorStorePreserve": "restart", "StatusErrno": "0", "Result": "success", "ReloadResult": "success", "CleanResult": "success", "UID": "[not set]", "GID": "[not set]", "NRestarts": "0", "OOMPolicy": "stop", "ReloadSignal": "1", "ExecMainStartTimestamp": "Mon 2026-11-23 15:46:17 UTC", "ExecMainStartTimestampMonotonic": "6938763101", "ExecMainExitTimestampMonotonic": "0", "ExecMainPID": "3772", "ExecMainCode": "0", "ExecMainStatus": "0", "ExecStart": "{ path=/usr/bin/fail2ban-server ; argv[]=/usr/bin/fail2ban-server -xf start ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }", "ExecStartEx": "{ path=/usr/bin/fail2ban-server ; argv[]=/usr/bin/fail2ban-server -xf start ; flags= ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }", "ExecReload": "{ path=/usr/bin/fail2ban-client ; argv[]=/usr/bin/fail2ban-client reload ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }", "ExecReloadEx": "{ path=/usr/bin/fail2ban-client ; argv[]=/usr/bin/fail2ban-client reload ; flags= ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }", "ExecStop": "{ path=/usr/bin/fail2ban-client ; argv[]=/usr/bin/fail2ban-client stop ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }", "ExecStopEx": "{ path=/usr/bin/fail2ban-client ; argv[]=/usr/bin/fail2ban-client stop ; flags= ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }", "Slice": "system.slice", "ControlGroup": "/system.slice/fail2ban.service", "ControlGroupId": "10059", "MemoryCurrent": "20176896", "MemoryPeak": "20176896", "MemorySwapCurrent": "0", "MemorySwapPeak": "0", "MemoryZSwapCurrent": "0", "MemoryAvailable": "552558592", "CPUUsageNSec": "2360040000", "TasksCurrent": "5", "IPIngressBytes": "[no data]", "IPIngressPackets": "[no data]", "IPEgressBytes": "[no data]", "IPEgressPackets": "[no data]", "IOReadBytes": "[not set]", "IOReadOperations": "[not set]", "IOWriteBytes": "[not set]", "IOWriteOperations": "[not set]", "Delegate": "no", "CPUAccounting": "yes", "CPUWeight": "[not set]", "StartupCPUWeight": "[not set]", "CPUShares": "[not set]", "StartupCPUShares": "[not set]", "CPUQuotaPerSecUSec": "infinity", "CPUQuotaPeriodUSec": "infinity", "IOAccounting": "no", "IOWeight": "[not set]", "StartupIOWeight": "[not set]", "BlockIOAccounting": "no", "BlockIOWeight": "[not set]", "StartupBlockIOWeight": "[not set]", "MemoryAccounting": "yes", "DefaultMemoryLow": "0", "DefaultStartupMemoryLow": "0", "DefaultMemoryMin": "0", "MemoryMin": "0", "MemoryLow": "0", "StartupMemoryLow": "0", "MemoryHigh": "infinity", "StartupMemoryHigh": "infinity", "MemoryMax": "infinity", "StartupMemoryMax": "infinity", "MemorySwapMax": "infinity", "StartupMemorySwapMax": "infinity", "MemoryZSwapMax": "infinity", "StartupMemoryZSwapMax": "infinity", "MemoryLimit": "infinity", "DevicePolicy": "auto", "TasksAccounting": "yes", "TasksMax": "639", "IPAccounting": "no", "ManagedOOMSwap": "auto", "ManagedOOMMemoryPressure": "auto", "ManagedOOMMemoryPressureLimit": "0", "ManagedOOMPreference": "none", "MemoryPressureWatch": "auto", "MemoryPressureThresholdUSec": "200ms", "CoredumpReceive": "no", "Environment": "PYTHONNOUSERSITE=yes", "UMask": "0022", "LimitCPU": "infinity", "LimitCPUSoft": "infinity", "LimitFSIZE": "infinity", "LimitFSIZESoft": "infinity", "LimitDATA": "infinity", "LimitDATASoft": "infinity", "LimitSTACK": "infinity", "LimitSTACKSoft": "8388608", "LimitCORE": "infinity", "LimitCORESoft": "0", "LimitRSS": "infinity", "LimitRSSSoft": "infinity", "LimitNOFILE": "524288", "LimitNOFILESoft": "1024", "LimitAS": "infinity", "LimitASSoft": "infinity", "LimitNPROC": "2132", "LimitNPROCSoft": "2132", "LimitMEMLOCK": "8388608", "LimitMEMLOCKSoft": "8388608", "LimitLOCKS": "infinity", "LimitLOCKSSoft": "infinity", "LimitSIGPENDING": "2132", "LimitSIGPENDINGSoft": "2132", "LimitMSGQUEUE": "819200", "LimitMSGQUEUESoft": "819200", "LimitNICE": "0", "LimitNICESoft": "0", "LimitRTPRIO": "0", "LimitRTPRIOSoft": "0", "LimitRTTIME": "infinity", "LimitRTTIMESoft": "infinity", "RootEphemeral": "no", "OOMScoreAdjust": "0", "CoredumpFilter": "0x33", "Nice": "0", "IOSchedulingClass": "2", "IOSchedulingPriority": "4", "CPUSchedulingPolicy": "0", "CPUSchedulingPriority": "0", "CPUAffinityFromNUMA": "no", "NUMAPolicy": "n/a", "TimerSlackNSec": "50000", "CPUSchedulingResetOnFork": "no", "NonBlocking": "no", "StandardInput": "null", "StandardOutput": "journal", "StandardError": "inherit", "TTYReset": "no", "TTYVHangup": "no", "TTYVTDisallocate": "no", "SyslogPriority": "30", "SyslogLevelPrefix": "yes", "SyslogLevel": "6", "SyslogFacility": "3", "LogLevelMax": "-1", "LogRateLimitIntervalUSec": "0", "LogRateLimitBurst": "0", "SecureBits": "0", "CapabilityBoundingSet": "cap_chown cap_dac_override cap_dac_read_search cap_fowner cap_fsetid cap_kill cap_setgid cap_setuid cap_setpcap cap_linux_immutable cap_net_bind_service cap_net_broadcast cap_net_admin cap_net_raw cap_ipc_lock cap_ipc_owner cap_sys_module cap_sys_rawio cap_sys_chroot cap_sys_ptrace cap_sys_pacct cap_sys_admin cap_sys_boot cap_sys_nice cap_sys_resource cap_sys_time cap_sys_tty_config cap_mknod cap_lease cap_audit_write cap_audit_control cap_setfcap cap_mac_override cap_mac_admin cap_syslog cap_wake_alarm cap_block_suspend cap_audit_read cap_perfmon cap_bpf cap_checkpoint_restore", "DynamicUser": "no", "SetLoginEnvironment": "no", "RemoveIPC": "no", "PrivateTmp": "no", "PrivateDevices": "no", "ProtectClock": "no", "ProtectKernelTunables": "no", "ProtectKernelModules": "no", "ProtectKernelLogs": "no", "ProtectControlGroups": "no", "PrivateNetwork": "no", "PrivateUsers": "no", "PrivateMounts": "no", "PrivateIPC": "no", "ProtectHome": "no", "ProtectSystem": "no", "SameProcessGroup": "no", "UtmpMode": "init", "IgnoreSIGPIPE": "yes", "NoNewPrivileges": "no", "SystemCallErrorNumber": "2147483646", "LockPersonality": "no", "RuntimeDirectoryPreserve": "no", "RuntimeDirectoryMode": "0755", "RuntimeDirectory": "fail2ban", "StateDirectoryMode": "0755", "CacheDirectoryMode": "0755", "LogsDirectoryMode": "0755", "ConfigurationDirectoryMode": "0755", "TimeoutCleanUSec": "infinity", "MemoryDenyWriteExecute": "no", "RestrictRealtime": "no", "RestrictSUIDSGID": "no", "RestrictNamespaces": "no", "MountAPIVFS": "no", "KeyringMode": "private", "ProtectProc": "default", "ProcSubset": "all", "ProtectHostname": "no", "MemoryKSM": "no", "RootImagePolicy": "root=verity+signed+encrypted+unprotected+absent:usr=verity+signed+encrypted+unprotected+absent:home=encrypted+unprotected+absent:srv=encrypted+unprotected+absent:tmp=encrypted+unprotected+absent:var=encrypted+unprotected+absent", "MountImagePolicy": "root=verity+signed+encrypted+unprotected+absent:usr=verity+signed+encrypted+unprotected+absent:home=encrypted+unprotected+absent:srv=encrypted+unprotected+absent:tmp=encrypted+unprotected+absent:var=encrypted+unprotected+absent", "ExtensionImagePolicy": "root=verity+signed+encrypted+unprotected+absent:usr=verity+signed+encrypted+unprotected+absent:home=encrypted+unprotected+absent:srv=encrypted+unprotected+absent:tmp=encrypted+unprotected+absent:var=encrypted+unprotected+absent", "KillMode": "control-group", "KillSignal": "15", "RestartKillSignal": "15", "FinalKillSignal": "9", "SendSIGKILL": "yes", "SendSIGHUP": "no", "WatchdogSignal": "6", "Id": "fail2ban.service", "Names": "fail2ban.service", "Requires": "system.slice sysinit.target -.mount", "PartOf": "firewalld.service", "WantedBy": "multi-user.target", "Conflicts": "shutdown.target", "Before": "multi-user.target shutdown.target", "After": "basic.target firewalld.service ipset.service systemd-journald.socket network.target iptables.service ip6tables.service sysinit.target nftables.service -.mount system.slice", "RequiresMountsFor": "/run/fail2ban", "Documentation": "\\"man:fail2ban(1)\\"", "Description": "Fail2Ban Service", "LoadState": "loaded", "ActiveState": "active", "FreezerState": "running", "SubState": "running", "FragmentPath": "/usr/lib/systemd/system/fail2ban.service", "UnitFileState": "enabled", "UnitFilePreset": "enabled", "StateChangeTimestamp": "Mon 2026-11-23 15:46:17 UTC", "StateChangeTimestampMonotonic": "6938763375", "InactiveExitTimestamp": "Mon 2026-11-23 15:46:17 UTC", "InactiveExitTimestampMonotonic": "6938763375", "ActiveEnterTimestamp": "Mon 2026-11-23 15:46:17 UTC", "ActiveEnterTimestampMonotonic": "6938763375", "ActiveExitTimestamp": "Mon 2026-11-23 15:46:17 UTC", "ActiveExitTimestampMonotonic": "6938441347", "InactiveEnterTimestamp": "Mon 2026-11-23 15:46:17 UTC", "InactiveEnterTimestampMonotonic": "6938758878", "CanStart": "yes", "CanStop": "yes", "CanReload": "yes", "CanIsolate": "no", "CanClean": "runtime", "CanFreeze": "yes", "StopWhenUnneeded": "no", "RefuseManualStart": "no", "RefuseManualStop": "no", "AllowIsolate": "no", "DefaultDependencies": "yes", "SurviveFinalKillSignal": "no", "OnSuccessJobMode": "fail", "OnFailureJobMode": "replace", "IgnoreOnIsolate": "no", "NeedDaemonReload": "no", "JobTimeoutUSec": "infinity", "JobRunningTimeoutUSec": "infinity", "JobTimeoutAction": "none", "ConditionResult": "yes", "AssertResult": "yes", "ConditionTimestamp": "Mon 2026-11-23 15:46:17 UTC", "ConditionTimestampMonotonic": "6938759783", "AssertTimestamp": "Mon 2026-11-23 15:46:17 UTC", "AssertTimestampMonotonic": "6938759785", "Transient": "no", "Perpetual": "no", "StartLimitIntervalUSec": "10s", "StartLimitBurst": "5", "StartLimitAction": "none", "FailureAction": "none", "SuccessAction": "none", "InvocationID": "7bd19c06cbd64056aeae708fb7feaaa0", "CollectMode": "inactive"}, "enabled": true, "state": "started", "invocation": {"module_args": {"enabled": true, "name": "fail2ban", "state": "started", "daemon_reload": false, "daemon_reexec": false, "scope": "system", "no_block": false, "force": null, "masked": null}}}\n', b'')
+ok: [aiops-dev-bastion] => {
+    "changed": false,
+    "enabled": true,
+    "invocation": {
+        "module_args": {
+            "daemon_reexec": false,
+            "daemon_reload": false,
+            "enabled": true,
+            "force": null,
+            "masked": null,
+            "name": "fail2ban",
+            "no_block": false,
+            "scope": "system",
+            "state": "started"
+        }
+    },
+    "name": "fail2ban",
+    "state": "started",
+    "status": {
+        "ActiveEnterTimestamp": "Mon 2026-11-23 15:46:17 UTC",
+        "ActiveEnterTimestampMonotonic": "6938763375",
+        "ActiveExitTimestamp": "Mon 2026-11-23 15:46:17 UTC",
+        "ActiveExitTimestampMonotonic": "6938441347",
+        "ActiveState": "active",
+        "After": "basic.target firewalld.service ipset.service systemd-journald.socket network.target iptables.service ip6tables.service sysinit.target nftables.service -.mount system.slice",
+        "AllowIsolate": "no",
+        "AssertResult": "yes",
+        "AssertTimestamp": "Mon 2026-11-23 15:46:17 UTC",
+        "AssertTimestampMonotonic": "6938759785",
+        "Before": "multi-user.target shutdown.target",
+        "BlockIOAccounting": "no",
+        "BlockIOWeight": "[not set]",
+        "CPUAccounting": "yes",
+        "CPUAffinityFromNUMA": "no",
+        "CPUQuotaPerSecUSec": "infinity",
+        "CPUQuotaPeriodUSec": "infinity",
+        "CPUSchedulingPolicy": "0",
+        "CPUSchedulingPriority": "0",
+        "CPUSchedulingResetOnFork": "no",
+        "CPUShares": "[not set]",
+        "CPUUsageNSec": "2360040000",
+        "CPUWeight": "[not set]",
+        "CacheDirectoryMode": "0755",
+        "CanClean": "runtime",
+        "CanFreeze": "yes",
+        "CanIsolate": "no",
+        "CanReload": "yes",
+        "CanStart": "yes",
+        "CanStop": "yes",
+        "CapabilityBoundingSet": "cap_chown cap_dac_override cap_dac_read_search cap_fowner cap_fsetid cap_kill cap_setgid cap_setuid cap_setpcap cap_linux_immutable cap_net_bind_service cap_net_broadcast cap_net_admin cap_net_raw cap_ipc_lock cap_ipc_owner cap_sys_module cap_sys_rawio cap_sys_chroot cap_sys_ptrace cap_sys_pacct cap_sys_admin cap_sys_boot cap_sys_nice cap_sys_resource cap_sys_time cap_sys_tty_config cap_mknod cap_lease cap_audit_write cap_audit_control cap_setfcap cap_mac_override cap_mac_admin cap_syslog cap_wake_alarm cap_block_suspend cap_audit_read cap_perfmon cap_bpf cap_checkpoint_restore",
+        "CleanResult": "success",
+        "CollectMode": "inactive",
+        "ConditionResult": "yes",
+        "ConditionTimestamp": "Mon 2026-11-23 15:46:17 UTC",
+        "ConditionTimestampMonotonic": "6938759783",
+        "ConfigurationDirectoryMode": "0755",
+        "Conflicts": "shutdown.target",
+        "ControlGroup": "/system.slice/fail2ban.service",
+        "ControlGroupId": "10059",
+        "ControlPID": "0",
+        "CoredumpFilter": "0x33",
+        "CoredumpReceive": "no",
+        "DefaultDependencies": "yes",
+        "DefaultMemoryLow": "0",
+        "DefaultMemoryMin": "0",
+        "DefaultStartupMemoryLow": "0",
+        "Delegate": "no",
+        "Description": "Fail2Ban Service",
+        "DevicePolicy": "auto",
+        "Documentation": "\"man:fail2ban(1)\"",
+        "DynamicUser": "no",
+        "Environment": "PYTHONNOUSERSITE=yes",
+        "ExecMainCode": "0",
+        "ExecMainExitTimestampMonotonic": "0",
+        "ExecMainPID": "3772",
+        "ExecMainStartTimestamp": "Mon 2026-11-23 15:46:17 UTC",
+        "ExecMainStartTimestampMonotonic": "6938763101",
+        "ExecMainStatus": "0",
+        "ExecReload": "{ path=/usr/bin/fail2ban-client ; argv[]=/usr/bin/fail2ban-client reload ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }",
+        "ExecReloadEx": "{ path=/usr/bin/fail2ban-client ; argv[]=/usr/bin/fail2ban-client reload ; flags= ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }",
+        "ExecStart": "{ path=/usr/bin/fail2ban-server ; argv[]=/usr/bin/fail2ban-server -xf start ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }",
+        "ExecStartEx": "{ path=/usr/bin/fail2ban-server ; argv[]=/usr/bin/fail2ban-server -xf start ; flags= ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }",
+        "ExecStop": "{ path=/usr/bin/fail2ban-client ; argv[]=/usr/bin/fail2ban-client stop ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }",
+        "ExecStopEx": "{ path=/usr/bin/fail2ban-client ; argv[]=/usr/bin/fail2ban-client stop ; flags= ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }",
+        "ExitType": "main",
+        "ExtensionImagePolicy": "root=verity+signed+encrypted+unprotected+absent:usr=verity+signed+encrypted+unprotected+absent:home=encrypted+unprotected+absent:srv=encrypted+unprotected+absent:tmp=encrypted+unprotected+absent:var=encrypted+unprotected+absent",
+        "FailureAction": "none",
+        "FileDescriptorStoreMax": "0",
+        "FileDescriptorStorePreserve": "restart",
+        "FinalKillSignal": "9",
+        "FragmentPath": "/usr/lib/systemd/system/fail2ban.service",
+        "FreezerState": "running",
+        "GID": "[not set]",
+        "GuessMainPID": "yes",
+        "IOAccounting": "no",
+        "IOReadBytes": "[not set]",
+        "IOReadOperations": "[not set]",
+        "IOSchedulingClass": "2",
+        "IOSchedulingPriority": "4",
+        "IOWeight": "[not set]",
+        "IOWriteBytes": "[not set]",
+        "IOWriteOperations": "[not set]",
+        "IPAccounting": "no",
+        "IPEgressBytes": "[no data]",
+        "IPEgressPackets": "[no data]",
+        "IPIngressBytes": "[no data]",
+        "IPIngressPackets": "[no data]",
+        "Id": "fail2ban.service",
+        "IgnoreOnIsolate": "no",
+        "IgnoreSIGPIPE": "yes",
+        "InactiveEnterTimestamp": "Mon 2026-11-23 15:46:17 UTC",
+        "InactiveEnterTimestampMonotonic": "6938758878",
+        "InactiveExitTimestamp": "Mon 2026-11-23 15:46:17 UTC",
+        "InactiveExitTimestampMonotonic": "6938763375",
+        "InvocationID": "7bd19c06cbd64056aeae708fb7feaaa0",
+        "JobRunningTimeoutUSec": "infinity",
+        "JobTimeoutAction": "none",
+        "JobTimeoutUSec": "infinity",
+        "KeyringMode": "private",
+        "KillMode": "control-group",
+        "KillSignal": "15",
+        "LimitAS": "infinity",
+        "LimitASSoft": "infinity",
+        "LimitCORE": "infinity",
+        "LimitCORESoft": "0",
+        "LimitCPU": "infinity",
+        "LimitCPUSoft": "infinity",
+        "LimitDATA": "infinity",
+        "LimitDATASoft": "infinity",
+        "LimitFSIZE": "infinity",
+        "LimitFSIZESoft": "infinity",
+        "LimitLOCKS": "infinity",
+        "LimitLOCKSSoft": "infinity",
+        "LimitMEMLOCK": "8388608",
+        "LimitMEMLOCKSoft": "8388608",
+        "LimitMSGQUEUE": "819200",
+        "LimitMSGQUEUESoft": "819200",
+        "LimitNICE": "0",
+        "LimitNICESoft": "0",
+        "LimitNOFILE": "524288",
+        "LimitNOFILESoft": "1024",
+        "LimitNPROC": "2132",
+        "LimitNPROCSoft": "2132",
+        "LimitRSS": "infinity",
+        "LimitRSSSoft": "infinity",
+        "LimitRTPRIO": "0",
+        "LimitRTPRIOSoft": "0",
+        "LimitRTTIME": "infinity",
+        "LimitRTTIMESoft": "infinity",
+        "LimitSIGPENDING": "2132",
+        "LimitSIGPENDINGSoft": "2132",
+        "LimitSTACK": "infinity",
+        "LimitSTACKSoft": "8388608",
+        "LoadState": "loaded",
+        "LockPersonality": "no",
+        "LogLevelMax": "-1",
+        "LogRateLimitBurst": "0",
+        "LogRateLimitIntervalUSec": "0",
+        "LogsDirectoryMode": "0755",
+        "MainPID": "3772",
+        "ManagedOOMMemoryPressure": "auto",
+        "ManagedOOMMemoryPressureLimit": "0",
+        "ManagedOOMPreference": "none",
+        "ManagedOOMSwap": "auto",
+        "MemoryAccounting": "yes",
+        "MemoryAvailable": "552558592",
+        "MemoryCurrent": "20176896",
+        "MemoryDenyWriteExecute": "no",
+        "MemoryHigh": "infinity",
+        "MemoryKSM": "no",
+        "MemoryLimit": "infinity",
+        "MemoryLow": "0",
+        "MemoryMax": "infinity",
+        "MemoryMin": "0",
+        "MemoryPeak": "20176896",
+        "MemoryPressureThresholdUSec": "200ms",
+        "MemoryPressureWatch": "auto",
+        "MemorySwapCurrent": "0",
+        "MemorySwapMax": "infinity",
+        "MemorySwapPeak": "0",
+        "MemoryZSwapCurrent": "0",
+        "MemoryZSwapMax": "infinity",
+        "MountAPIVFS": "no",
+        "MountImagePolicy": "root=verity+signed+encrypted+unprotected+absent:usr=verity+signed+encrypted+unprotected+absent:home=encrypted+unprotected+absent:srv=encrypted+unprotected+absent:tmp=encrypted+unprotected+absent:var=encrypted+unprotected+absent",
+        "NFileDescriptorStore": "0",
+        "NRestarts": "0",
+        "NUMAPolicy": "n/a",
+        "Names": "fail2ban.service",
+        "NeedDaemonReload": "no",
+        "Nice": "0",
+        "NoNewPrivileges": "no",
+        "NonBlocking": "no",
+        "NotifyAccess": "none",
+        "OOMPolicy": "stop",
+        "OOMScoreAdjust": "0",
+        "OnFailureJobMode": "replace",
+        "OnSuccessJobMode": "fail",
+        "PIDFile": "/run/fail2ban/fail2ban.pid",
+        "PartOf": "firewalld.service",
+        "Perpetual": "no",
+        "PrivateDevices": "no",
+        "PrivateIPC": "no",
+        "PrivateMounts": "no",
+        "PrivateNetwork": "no",
+        "PrivateTmp": "no",
+        "PrivateUsers": "no",
+        "ProcSubset": "all",
+        "ProtectClock": "no",
+        "ProtectControlGroups": "no",
+        "ProtectHome": "no",
+        "ProtectHostname": "no",
+        "ProtectKernelLogs": "no",
+        "ProtectKernelModules": "no",
+        "ProtectKernelTunables": "no",
+        "ProtectProc": "default",
+        "ProtectSystem": "no",
+        "RefuseManualStart": "no",
+        "RefuseManualStop": "no",
+        "ReloadResult": "success",
+        "ReloadSignal": "1",
+        "RemainAfterExit": "no",
+        "RemoveIPC": "no",
+        "Requires": "system.slice sysinit.target -.mount",
+        "RequiresMountsFor": "/run/fail2ban",
+        "Restart": "on-failure",
+        "RestartKillSignal": "15",
+        "RestartMaxDelayUSec": "infinity",
+        "RestartMode": "normal",
+        "RestartPreventExitStatus": "0 255",
+        "RestartSteps": "0",
+        "RestartUSec": "100ms",
+        "RestartUSecNext": "100ms",
+        "RestrictNamespaces": "no",
+        "RestrictRealtime": "no",
+        "RestrictSUIDSGID": "no",
+        "Result": "success",
+        "RootDirectoryStartOnly": "no",
+        "RootEphemeral": "no",
+        "RootImagePolicy": "root=verity+signed+encrypted+unprotected+absent:usr=verity+signed+encrypted+unprotected+absent:home=encrypted+unprotected+absent:srv=encrypted+unprotected+absent:tmp=encrypted+unprotected+absent:var=encrypted+unprotected+absent",
+        "RuntimeDirectory": "fail2ban",
+        "RuntimeDirectoryMode": "0755",
+        "RuntimeDirectoryPreserve": "no",
+        "RuntimeMaxUSec": "infinity",
+        "RuntimeRandomizedExtraUSec": "0",
+        "SameProcessGroup": "no",
+        "SecureBits": "0",
+        "SendSIGHUP": "no",
+        "SendSIGKILL": "yes",
+        "SetLoginEnvironment": "no",
+        "Slice": "system.slice",
+        "StandardError": "inherit",
+        "StandardInput": "null",
+        "StandardOutput": "journal",
+        "StartLimitAction": "none",
+        "StartLimitBurst": "5",
+        "StartLimitIntervalUSec": "10s",
+        "StartupBlockIOWeight": "[not set]",
+        "StartupCPUShares": "[not set]",
+        "StartupCPUWeight": "[not set]",
+        "StartupIOWeight": "[not set]",
+        "StartupMemoryHigh": "infinity",
+        "StartupMemoryLow": "0",
+        "StartupMemoryMax": "infinity",
+        "StartupMemorySwapMax": "infinity",
+        "StartupMemoryZSwapMax": "infinity",
+        "StateChangeTimestamp": "Mon 2026-11-23 15:46:17 UTC",
+        "StateChangeTimestampMonotonic": "6938763375",
+        "StateDirectoryMode": "0755",
+        "StatusErrno": "0",
+        "StopWhenUnneeded": "no",
+        "SubState": "running",
+        "SuccessAction": "none",
+        "SurviveFinalKillSignal": "no",
+        "SyslogFacility": "3",
+        "SyslogLevel": "6",
+        "SyslogLevelPrefix": "yes",
+        "SyslogPriority": "30",
+        "SystemCallErrorNumber": "2147483646",
+        "TTYReset": "no",
+        "TTYVHangup": "no",
+        "TTYVTDisallocate": "no",
+        "TasksAccounting": "yes",
+        "TasksCurrent": "5",
+        "TasksMax": "639",
+        "TimeoutAbortUSec": "1min 30s",
+        "TimeoutCleanUSec": "infinity",
+        "TimeoutStartFailureMode": "terminate",
+        "TimeoutStartUSec": "1min 30s",
+        "TimeoutStopFailureMode": "terminate",
+        "TimeoutStopUSec": "1min 30s",
+        "TimerSlackNSec": "50000",
+        "Transient": "no",
+        "Type": "simple",
+        "UID": "[not set]",
+        "UMask": "0022",
+        "UnitFilePreset": "enabled",
+        "UnitFileState": "enabled",
+        "UtmpMode": "init",
+        "WantedBy": "multi-user.target",
+        "WatchdogSignal": "6",
+        "WatchdogTimestampMonotonic": "0",
+        "WatchdogUSec": "0"
+    }
+}
+
+TASK [common : Enable automatic security updates] ******************************
+task path: /home/ubuntu/aiops-incident-copilot/ansible/roles/common/tasks/main.yml:61
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'echo ~ubuntu && sleep 0'"'"''
+<32.195.71.79> (0, b'/home/ubuntu\n', b'')
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/ubuntu/.ansible/tmp `"&& mkdir "` echo /home/ubuntu/.ansible/tmp/ansible-tmp-1795451696.5317717-160562-130010568519050 `" && echo ansible-tmp-1795451696.5317717-160562-130010568519050="` echo /home/ubuntu/.ansible/tmp/ansible-tmp-1795451696.5317717-160562-130010568519050 `" ) && sleep 0'"'"''
+<32.195.71.79> (0, b'ansible-tmp-1795451696.5317717-160562-130010568519050=/home/ubuntu/.ansible/tmp/ansible-tmp-1795451696.5317717-160562-130010568519050\n', b'')
+Using module file /usr/lib/python3/dist-packages/ansible/modules/stat.py
+Pipelining is enabled.
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-pszswjgqabvvlsywitrvnhnobgxmkfji ; /usr/bin/python3.12'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<32.195.71.79> Escalation succeeded
+<32.195.71.79> (0, b'\n{"changed": false, "stat": {"exists": true, "path": "/etc/apt/apt.conf.d/20auto-upgrades", "mode": "0644", "isdir": false, "ischr": false, "isblk": false, "isreg": true, "isfifo": false, "islnk": false, "issock": false, "uid": 0, "gid": 0, "size": 80, "inode": 132, "dev": 66305, "nlink": 1, "atime": 1795441850.1980004, "mtime": 1707760235.0, "ctime": 1795169333.9690905, "wusr": true, "rusr": true, "xusr": false, "wgrp": false, "rgrp": true, "xgrp": false, "woth": false, "roth": true, "xoth": false, "isuid": false, "isgid": false, "blocks": 8, "block_size": 4096, "device_type": 0, "readable": true, "writeable": true, "executable": false, "pw_name": "root", "gr_name": "root", "checksum": "91d0ccbd3dddaa6f5f5efeee64c42df4680170ba", "mimetype": "text/plain", "charset": "us-ascii", "version": "4100861653", "attributes": ["extents"], "attr_flags": "e"}, "invocation": {"module_args": {"path": "/etc/apt/apt.conf.d/20auto-upgrades", "follow": false, "get_checksum": true, "get_size": false, "checksum_algorithm": "sha1", "get_mime": true, "get_attributes": true, "get_selinux_context": false}}}\n', b'')
+Using module file /usr/lib/python3/dist-packages/ansible/modules/file.py
+Pipelining is enabled.
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-dgivlmmemjggsidlgawcexxplaqexvgz ; /usr/bin/python3.12'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<32.195.71.79> Escalation succeeded
+<32.195.71.79> (0, b'\n{"path": "/etc/apt/apt.conf.d/20auto-upgrades", "changed": false, "uid": 0, "gid": 0, "owner": "root", "group": "root", "mode": "0644", "state": "file", "size": 80, "invocation": {"module_args": {"mode": "0644", "dest": "/etc/apt/apt.conf.d/20auto-upgrades", "_original_basename": ".e8_lx59p", "recurse": false, "state": "file", "path": "/etc/apt/apt.conf.d/20auto-upgrades", "force": false, "follow": true, "modification_time_format": "%Y%m%d%H%M.%S", "access_time_format": "%Y%m%d%H%M.%S", "unsafe_writes": false, "_diff_peek": null, "src": null, "modification_time": null, "access_time": null, "owner": null, "group": null, "seuser": null, "serole": null, "selevel": null, "setype": null, "attributes": null}}}\n', b'')
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'rm -f -r /home/ubuntu/.ansible/tmp/ansible-tmp-1795451696.5317717-160562-130010568519050/ > /dev/null 2>&1 && sleep 0'"'"''
+<32.195.71.79> (0, b'', b'')
+ok: [aiops-dev-bastion] => {
+    "changed": false,
+    "checksum": "91d0ccbd3dddaa6f5f5efeee64c42df4680170ba",
+    "dest": "/etc/apt/apt.conf.d/20auto-upgrades",
+    "diff": [],
+    "gid": 0,
+    "group": "root",
+    "invocation": {
+        "module_args": {
+            "_diff_peek": null,
+            "_original_basename": ".e8_lx59p",
+            "access_time": null,
+            "access_time_format": "%Y%m%d%H%M.%S",
+            "attributes": null,
+            "dest": "/etc/apt/apt.conf.d/20auto-upgrades",
+            "follow": true,
+            "force": false,
+            "group": null,
+            "mode": "0644",
+            "modification_time": null,
+            "modification_time_format": "%Y%m%d%H%M.%S",
+            "owner": null,
+            "path": "/etc/apt/apt.conf.d/20auto-upgrades",
+            "recurse": false,
+            "selevel": null,
+            "serole": null,
+            "setype": null,
+            "seuser": null,
+            "src": null,
+            "state": "file",
+            "unsafe_writes": false
+        }
+    },
+    "mode": "0644",
+    "owner": "root",
+    "path": "/etc/apt/apt.conf.d/20auto-upgrades",
+    "size": 80,
+    "state": "file",
+    "uid": 0
+}
+
+TASK [common : Install the host health-check script] ***************************
+task path: /home/ubuntu/aiops-incident-copilot/ansible/roles/common/tasks/main.yml:69
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'echo ~ubuntu && sleep 0'"'"''
+<32.195.71.79> (0, b'/home/ubuntu\n', b'')
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/ubuntu/.ansible/tmp `"&& mkdir "` echo /home/ubuntu/.ansible/tmp/ansible-tmp-1795451697.204821-160569-137648595562438 `" && echo ansible-tmp-1795451697.204821-160569-137648595562438="` echo /home/ubuntu/.ansible/tmp/ansible-tmp-1795451697.204821-160569-137648595562438 `" ) && sleep 0'"'"''
+<32.195.71.79> (0, b'ansible-tmp-1795451697.204821-160569-137648595562438=/home/ubuntu/.ansible/tmp/ansible-tmp-1795451697.204821-160569-137648595562438\n', b'')
+Using module file /usr/lib/python3/dist-packages/ansible/modules/stat.py
+Pipelining is enabled.
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-orvufeulqohvaszznydmiimzbvpwvozm ; /usr/bin/python3.12'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<32.195.71.79> Escalation succeeded
+<32.195.71.79> (0, b'\n{"changed": false, "stat": {"exists": true, "path": "/usr/local/bin/host-healthcheck.sh", "mode": "0755", "isdir": false, "ischr": false, "isblk": false, "isreg": true, "isfifo": false, "islnk": false, "issock": false, "uid": 0, "gid": 0, "size": 867, "inode": 303221, "dev": 66305, "nlink": 1, "atime": 1795448769.994321, "mtime": 1795448766.9393933, "ctime": 1795448767.2250752, "wusr": true, "rusr": true, "xusr": true, "wgrp": false, "rgrp": true, "xgrp": true, "woth": false, "roth": true, "xoth": true, "isuid": false, "isgid": false, "blocks": 8, "block_size": 4096, "device_type": 0, "readable": true, "writeable": true, "executable": true, "pw_name": "root", "gr_name": "root", "checksum": "a6c0d5eea076747c34276d28381c4b769f945dd3", "mimetype": "text/x-shellscript", "charset": "us-ascii", "version": "1827456360", "attributes": ["extents"], "attr_flags": "e"}, "invocation": {"module_args": {"path": "/usr/local/bin/host-healthcheck.sh", "follow": false, "get_checksum": true, "get_size": false, "checksum_algorithm": "sha1", "get_mime": true, "get_attributes": true, "get_selinux_context": false}}}\n', b'')
+Using module file /usr/lib/python3/dist-packages/ansible/modules/file.py
+Pipelining is enabled.
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-nxwerbscurbfbsfheuhkugvxfekgtktu ; /usr/bin/python3.12'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<32.195.71.79> Escalation succeeded
+<32.195.71.79> (0, b'\n{"path": "/usr/local/bin/host-healthcheck.sh", "changed": false, "uid": 0, "gid": 0, "owner": "root", "group": "root", "mode": "0755", "state": "file", "size": 867, "invocation": {"module_args": {"mode": "0755", "dest": "/usr/local/bin/host-healthcheck.sh", "_original_basename": "host-healthcheck.sh", "recurse": false, "state": "file", "path": "/usr/local/bin/host-healthcheck.sh", "force": false, "follow": true, "modification_time_format": "%Y%m%d%H%M.%S", "access_time_format": "%Y%m%d%H%M.%S", "unsafe_writes": false, "_diff_peek": null, "src": null, "modification_time": null, "access_time": null, "owner": null, "group": null, "seuser": null, "serole": null, "selevel": null, "setype": null, "attributes": null}}}\n', b'')
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'rm -f -r /home/ubuntu/.ansible/tmp/ansible-tmp-1795451697.204821-160569-137648595562438/ > /dev/null 2>&1 && sleep 0'"'"''
+<32.195.71.79> (0, b'', b'')
+ok: [aiops-dev-bastion] => {
+    "changed": false,
+    "checksum": "a6c0d5eea076747c34276d28381c4b769f945dd3",
+    "dest": "/usr/local/bin/host-healthcheck.sh",
+    "diff": [],
+    "gid": 0,
+    "group": "root",
+    "invocation": {
+        "module_args": {
+            "_diff_peek": null,
+            "_original_basename": "host-healthcheck.sh",
+            "access_time": null,
+            "access_time_format": "%Y%m%d%H%M.%S",
+            "attributes": null,
+            "dest": "/usr/local/bin/host-healthcheck.sh",
+            "follow": true,
+            "force": false,
+            "group": null,
+            "mode": "0755",
+            "modification_time": null,
+            "modification_time_format": "%Y%m%d%H%M.%S",
+            "owner": null,
+            "path": "/usr/local/bin/host-healthcheck.sh",
+            "recurse": false,
+            "selevel": null,
+            "serole": null,
+            "setype": null,
+            "seuser": null,
+            "src": null,
+            "state": "file",
+            "unsafe_writes": false
+        }
+    },
+    "mode": "0755",
+    "owner": "root",
+    "path": "/usr/local/bin/host-healthcheck.sh",
+    "size": 867,
+    "state": "file",
+    "uid": 0
+}
+
+TASK [common : Install health-check systemd units] *****************************
+task path: /home/ubuntu/aiops-incident-copilot/ansible/roles/common/tasks/main.yml:75
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'echo ~ubuntu && sleep 0'"'"''
+<32.195.71.79> (0, b'/home/ubuntu\n', b'')
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/ubuntu/.ansible/tmp `"&& mkdir "` echo /home/ubuntu/.ansible/tmp/ansible-tmp-1795451697.8746738-160575-97305427383947 `" && echo ansible-tmp-1795451697.8746738-160575-97305427383947="` echo /home/ubuntu/.ansible/tmp/ansible-tmp-1795451697.8746738-160575-97305427383947 `" ) && sleep 0'"'"''
+<32.195.71.79> (0, b'ansible-tmp-1795451697.8746738-160575-97305427383947=/home/ubuntu/.ansible/tmp/ansible-tmp-1795451697.8746738-160575-97305427383947\n', b'')
+Using module file /usr/lib/python3/dist-packages/ansible/modules/stat.py
+Pipelining is enabled.
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-rvokfuwcgkynmqfslgfgdaquyfbrpnfk ; /usr/bin/python3.12'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<32.195.71.79> Escalation succeeded
+<32.195.71.79> (0, b'\n{"changed": false, "stat": {"exists": true, "path": "/etc/systemd/system/host-healthcheck.service", "mode": "0644", "isdir": false, "ischr": false, "isblk": false, "isreg": true, "isfifo": false, "islnk": false, "issock": false, "uid": 0, "gid": 0, "size": 135, "inode": 303222, "dev": 66305, "nlink": 1, "atime": 1795448769.52942, "mtime": 1795448767.6344004, "ctime": 1795448767.9324036, "wusr": true, "rusr": true, "xusr": false, "wgrp": false, "rgrp": true, "xgrp": false, "woth": false, "roth": true, "xoth": false, "isuid": false, "isgid": false, "blocks": 8, "block_size": 4096, "device_type": 0, "readable": true, "writeable": true, "executable": false, "pw_name": "root", "gr_name": "root", "checksum": "d9e64e1b4be175aa6da1443b4cd1194acf0d2459", "mimetype": "text/plain", "charset": "us-ascii", "version": "123475811", "attributes": ["extents"], "attr_flags": "e"}, "invocation": {"module_args": {"path": "/etc/systemd/system/host-healthcheck.service", "follow": false, "get_checksum": true, "get_size": false, "checksum_algorithm": "sha1", "get_mime": true, "get_attributes": true, "get_selinux_context": false}}}\n', b'')
+Using module file /usr/lib/python3/dist-packages/ansible/modules/file.py
+Pipelining is enabled.
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-iaihpfjtiwariudqnslyxmhjqtvwqllo ; /usr/bin/python3.12'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<32.195.71.79> Escalation succeeded
+<32.195.71.79> (0, b'\n{"path": "/etc/systemd/system/host-healthcheck.service", "changed": false, "uid": 0, "gid": 0, "owner": "root", "group": "root", "mode": "0644", "state": "file", "size": 135, "invocation": {"module_args": {"mode": "0644", "dest": "/etc/systemd/system/host-healthcheck.service", "_original_basename": "host-healthcheck.service", "recurse": false, "state": "file", "path": "/etc/systemd/system/host-healthcheck.service", "force": false, "follow": true, "modification_time_format": "%Y%m%d%H%M.%S", "access_time_format": "%Y%m%d%H%M.%S", "unsafe_writes": false, "_diff_peek": null, "src": null, "modification_time": null, "access_time": null, "owner": null, "group": null, "seuser": null, "serole": null, "selevel": null, "setype": null, "attributes": null}}}\n', b'')
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'rm -f -r /home/ubuntu/.ansible/tmp/ansible-tmp-1795451697.8746738-160575-97305427383947/ > /dev/null 2>&1 && sleep 0'"'"''
+<32.195.71.79> (0, b'', b'')
+ok: [aiops-dev-bastion] => (item=host-healthcheck.service) => {
+    "ansible_loop_var": "item",
+    "changed": false,
+    "checksum": "d9e64e1b4be175aa6da1443b4cd1194acf0d2459",
+    "dest": "/etc/systemd/system/host-healthcheck.service",
+    "diff": [],
+    "gid": 0,
+    "group": "root",
+    "invocation": {
+        "module_args": {
+            "_diff_peek": null,
+            "_original_basename": "host-healthcheck.service",
+            "access_time": null,
+            "access_time_format": "%Y%m%d%H%M.%S",
+            "attributes": null,
+            "dest": "/etc/systemd/system/host-healthcheck.service",
+            "follow": true,
+            "force": false,
+            "group": null,
+            "mode": "0644",
+            "modification_time": null,
+            "modification_time_format": "%Y%m%d%H%M.%S",
+            "owner": null,
+            "path": "/etc/systemd/system/host-healthcheck.service",
+            "recurse": false,
+            "selevel": null,
+            "serole": null,
+            "setype": null,
+            "seuser": null,
+            "src": null,
+            "state": "file",
+            "unsafe_writes": false
+        }
+    },
+    "item": "host-healthcheck.service",
+    "mode": "0644",
+    "owner": "root",
+    "path": "/etc/systemd/system/host-healthcheck.service",
+    "size": 135,
+    "state": "file",
+    "uid": 0
+}
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'echo ~ubuntu && sleep 0'"'"''
+<32.195.71.79> (0, b'/home/ubuntu\n', b'')
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/ubuntu/.ansible/tmp `"&& mkdir "` echo /home/ubuntu/.ansible/tmp/ansible-tmp-1795451698.5437632-160575-169341103046214 `" && echo ansible-tmp-1795451698.5437632-160575-169341103046214="` echo /home/ubuntu/.ansible/tmp/ansible-tmp-1795451698.5437632-160575-169341103046214 `" ) && sleep 0'"'"''
+<32.195.71.79> (0, b'ansible-tmp-1795451698.5437632-160575-169341103046214=/home/ubuntu/.ansible/tmp/ansible-tmp-1795451698.5437632-160575-169341103046214\n', b'')
+Using module file /usr/lib/python3/dist-packages/ansible/modules/stat.py
+Pipelining is enabled.
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-cmxppracsedzqwacryjbpxsornqjogkp ; /usr/bin/python3.12'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<32.195.71.79> Escalation succeeded
+<32.195.71.79> (0, b'\n{"changed": false, "stat": {"exists": true, "path": "/etc/systemd/system/host-healthcheck.timer", "mode": "0644", "isdir": false, "ischr": false, "isblk": false, "isreg": true, "isfifo": false, "islnk": false, "issock": false, "uid": 0, "gid": 0, "size": 156, "inode": 303223, "dev": 66305, "nlink": 1, "atime": 1795448769.52842, "mtime": 1795448768.375408, "ctime": 1795448768.668411, "wusr": true, "rusr": true, "xusr": false, "wgrp": false, "rgrp": true, "xgrp": false, "woth": false, "roth": true, "xoth": false, "isuid": false, "isgid": false, "blocks": 8, "block_size": 4096, "device_type": 0, "readable": true, "writeable": true, "executable": false, "pw_name": "root", "gr_name": "root", "checksum": "7e686ef86535da580137a7835bd332f6da9265cb", "mimetype": "text/plain", "charset": "us-ascii", "version": "2872514681", "attributes": ["extents"], "attr_flags": "e"}, "invocation": {"module_args": {"path": "/etc/systemd/system/host-healthcheck.timer", "follow": false, "get_checksum": true, "get_size": false, "checksum_algorithm": "sha1", "get_mime": true, "get_attributes": true, "get_selinux_context": false}}}\n', b'')
+Using module file /usr/lib/python3/dist-packages/ansible/modules/file.py
+Pipelining is enabled.
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-rcfzxpbjrfoqhcqorfzokbcvjrzjrbix ; /usr/bin/python3.12'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<32.195.71.79> Escalation succeeded
+<32.195.71.79> (0, b'\n{"path": "/etc/systemd/system/host-healthcheck.timer", "changed": false, "uid": 0, "gid": 0, "owner": "root", "group": "root", "mode": "0644", "state": "file", "size": 156, "invocation": {"module_args": {"mode": "0644", "dest": "/etc/systemd/system/host-healthcheck.timer", "_original_basename": "host-healthcheck.timer", "recurse": false, "state": "file", "path": "/etc/systemd/system/host-healthcheck.timer", "force": false, "follow": true, "modification_time_format": "%Y%m%d%H%M.%S", "access_time_format": "%Y%m%d%H%M.%S", "unsafe_writes": false, "_diff_peek": null, "src": null, "modification_time": null, "access_time": null, "owner": null, "group": null, "seuser": null, "serole": null, "selevel": null, "setype": null, "attributes": null}}}\n', b'')
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'rm -f -r /home/ubuntu/.ansible/tmp/ansible-tmp-1795451698.5437632-160575-169341103046214/ > /dev/null 2>&1 && sleep 0'"'"''
+<32.195.71.79> (0, b'', b'')
+ok: [aiops-dev-bastion] => (item=host-healthcheck.timer) => {
+    "ansible_loop_var": "item",
+    "changed": false,
+    "checksum": "7e686ef86535da580137a7835bd332f6da9265cb",
+    "dest": "/etc/systemd/system/host-healthcheck.timer",
+    "diff": [],
+    "gid": 0,
+    "group": "root",
+    "invocation": {
+        "module_args": {
+            "_diff_peek": null,
+            "_original_basename": "host-healthcheck.timer",
+            "access_time": null,
+            "access_time_format": "%Y%m%d%H%M.%S",
+            "attributes": null,
+            "dest": "/etc/systemd/system/host-healthcheck.timer",
+            "follow": true,
+            "force": false,
+            "group": null,
+            "mode": "0644",
+            "modification_time": null,
+            "modification_time_format": "%Y%m%d%H%M.%S",
+            "owner": null,
+            "path": "/etc/systemd/system/host-healthcheck.timer",
+            "recurse": false,
+            "selevel": null,
+            "serole": null,
+            "setype": null,
+            "seuser": null,
+            "src": null,
+            "state": "file",
+            "unsafe_writes": false
+        }
+    },
+    "item": "host-healthcheck.timer",
+    "mode": "0644",
+    "owner": "root",
+    "path": "/etc/systemd/system/host-healthcheck.timer",
+    "size": 156,
+    "state": "file",
+    "uid": 0
+}
+
+TASK [common : Enable the health-check timer] **********************************
+task path: /home/ubuntu/aiops-incident-copilot/ansible/roles/common/tasks/main.yml:84
+Using module file /usr/lib/python3/dist-packages/ansible/modules/systemd.py
+Pipelining is enabled.
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-kcqbraybakiimwzzfzuzaaqqhcowdzum ; /usr/bin/python3.12'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<32.195.71.79> Escalation succeeded
+<32.195.71.79> (0, b'\n{"name": "host-healthcheck.timer", "changed": false, "status": {"Unit": "host-healthcheck.service", "TimersMonotonic": "{ OnBootUSec=2min ; next_elapse=2min }", "OnClockChange": "no", "OnTimezoneChange": "no", "NextElapseUSecMonotonic": "2h 48min 59.645933s", "LastTriggerUSec": "Mon 2026-11-23 16:34:38 UTC", "LastTriggerUSecMonotonic": "2h 43min 59.637530s", "Result": "success", "AccuracyUSec": "1min", "RandomizedDelayUSec": "0", "FixedRandomDelay": "no", "Persistent": "yes", "WakeSystem": "no", "RemainAfterElapse": "yes", "Id": "host-healthcheck.timer", "Names": "host-healthcheck.timer", "Requires": "-.mount sysinit.target", "WantedBy": "timers.target", "Conflicts": "shutdown.target", "Before": "shutdown.target host-healthcheck.service timers.target", "After": "-.mount sysinit.target", "Triggers": "host-healthcheck.service", "RequiresMountsFor": "/var/lib/systemd/timers", "Description": "Run the host health check every 5 minutes", "LoadState": "loaded", "ActiveState": "active", "FreezerState": "running", "SubState": "waiting", "FragmentPath": "/etc/systemd/system/host-healthcheck.timer", "UnitFileState": "enabled", "UnitFilePreset": "enabled", "StateChangeTimestamp": "Mon 2026-11-23 16:34:38 UTC", "StateChangeTimestampMonotonic": "9839687568", "InactiveExitTimestamp": "Mon 2026-11-23 15:46:09 UTC", "InactiveExitTimestampMonotonic": "6930763073", "ActiveEnterTimestamp": "Mon 2026-11-23 15:46:09 UTC", "ActiveEnterTimestampMonotonic": "6930763073", "ActiveExitTimestampMonotonic": "0", "InactiveEnterTimestampMonotonic": "0", "CanStart": "yes", "CanStop": "yes", "CanReload": "no", "CanIsolate": "no", "CanClean": "state", "CanFreeze": "no", "StopWhenUnneeded": "no", "RefuseManualStart": "no", "RefuseManualStop": "no", "AllowIsolate": "no", "DefaultDependencies": "yes", "SurviveFinalKillSignal": "no", "OnSuccessJobMode": "fail", "OnFailureJobMode": "replace", "IgnoreOnIsolate": "no", "NeedDaemonReload": "no", "JobTimeoutUSec": "infinity", "JobRunningTimeoutUSec": "infinity", "JobTimeoutAction": "none", "ConditionResult": "yes", "AssertResult": "yes", "ConditionTimestamp": "Mon 2026-11-23 15:46:09 UTC", "ConditionTimestampMonotonic": "6930762831", "AssertTimestamp": "Mon 2026-11-23 15:46:09 UTC", "AssertTimestampMonotonic": "6930762833", "Transient": "no", "Perpetual": "no", "StartLimitIntervalUSec": "10s", "StartLimitBurst": "5", "StartLimitAction": "none", "FailureAction": "none", "SuccessAction": "none", "InvocationID": "61b339d1f0534781a789f7ee6b14e963", "CollectMode": "inactive"}, "enabled": true, "state": "started", "invocation": {"module_args": {"daemon_reload": true, "enabled": true, "name": "host-healthcheck.timer", "state": "started", "daemon_reexec": false, "scope": "system", "no_block": false, "force": null, "masked": null}}}\n', b'')
+ok: [aiops-dev-bastion] => {
+    "changed": false,
+    "enabled": true,
+    "invocation": {
+        "module_args": {
+            "daemon_reexec": false,
+            "daemon_reload": true,
+            "enabled": true,
+            "force": null,
+            "masked": null,
+            "name": "host-healthcheck.timer",
+            "no_block": false,
+            "scope": "system",
+            "state": "started"
+        }
+    },
+    "name": "host-healthcheck.timer",
+    "state": "started",
+    "status": {
+        "AccuracyUSec": "1min",
+        "ActiveEnterTimestamp": "Mon 2026-11-23 15:46:09 UTC",
+        "ActiveEnterTimestampMonotonic": "6930763073",
+        "ActiveExitTimestampMonotonic": "0",
+        "ActiveState": "active",
+        "After": "-.mount sysinit.target",
+        "AllowIsolate": "no",
+        "AssertResult": "yes",
+        "AssertTimestamp": "Mon 2026-11-23 15:46:09 UTC",
+        "AssertTimestampMonotonic": "6930762833",
+        "Before": "shutdown.target host-healthcheck.service timers.target",
+        "CanClean": "state",
+        "CanFreeze": "no",
+        "CanIsolate": "no",
+        "CanReload": "no",
+        "CanStart": "yes",
+        "CanStop": "yes",
+        "CollectMode": "inactive",
+        "ConditionResult": "yes",
+        "ConditionTimestamp": "Mon 2026-11-23 15:46:09 UTC",
+        "ConditionTimestampMonotonic": "6930762831",
+        "Conflicts": "shutdown.target",
+        "DefaultDependencies": "yes",
+        "Description": "Run the host health check every 5 minutes",
+        "FailureAction": "none",
+        "FixedRandomDelay": "no",
+        "FragmentPath": "/etc/systemd/system/host-healthcheck.timer",
+        "FreezerState": "running",
+        "Id": "host-healthcheck.timer",
+        "IgnoreOnIsolate": "no",
+        "InactiveEnterTimestampMonotonic": "0",
+        "InactiveExitTimestamp": "Mon 2026-11-23 15:46:09 UTC",
+        "InactiveExitTimestampMonotonic": "6930763073",
+        "InvocationID": "61b339d1f0534781a789f7ee6b14e963",
+        "JobRunningTimeoutUSec": "infinity",
+        "JobTimeoutAction": "none",
+        "JobTimeoutUSec": "infinity",
+        "LastTriggerUSec": "Mon 2026-11-23 16:34:38 UTC",
+        "LastTriggerUSecMonotonic": "2h 43min 59.637530s",
+        "LoadState": "loaded",
+        "Names": "host-healthcheck.timer",
+        "NeedDaemonReload": "no",
+        "NextElapseUSecMonotonic": "2h 48min 59.645933s",
+        "OnClockChange": "no",
+        "OnFailureJobMode": "replace",
+        "OnSuccessJobMode": "fail",
+        "OnTimezoneChange": "no",
+        "Perpetual": "no",
+        "Persistent": "yes",
+        "RandomizedDelayUSec": "0",
+        "RefuseManualStart": "no",
+        "RefuseManualStop": "no",
+        "RemainAfterElapse": "yes",
+        "Requires": "-.mount sysinit.target",
+        "RequiresMountsFor": "/var/lib/systemd/timers",
+        "Result": "success",
+        "StartLimitAction": "none",
+        "StartLimitBurst": "5",
+        "StartLimitIntervalUSec": "10s",
+        "StateChangeTimestamp": "Mon 2026-11-23 16:34:38 UTC",
+        "StateChangeTimestampMonotonic": "9839687568",
+        "StopWhenUnneeded": "no",
+        "SubState": "waiting",
+        "SuccessAction": "none",
+        "SurviveFinalKillSignal": "no",
+        "TimersMonotonic": "{ OnBootUSec=2min ; next_elapse=2min }",
+        "Transient": "no",
+        "Triggers": "host-healthcheck.service",
+        "Unit": "host-healthcheck.service",
+        "UnitFilePreset": "enabled",
+        "UnitFileState": "enabled",
+        "WakeSystem": "no",
+        "WantedBy": "timers.target"
+    }
+}
+
+TASK [node_exporter : Create the node_exporter system user] ********************
+task path: /home/ubuntu/aiops-incident-copilot/ansible/roles/node_exporter/tasks/main.yml:2
+Using module file /usr/lib/python3/dist-packages/ansible/modules/user.py
+Pipelining is enabled.
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-xejkrjbywwapkdjqolaicxgrfrccdxec ; /usr/bin/python3.12'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<32.195.71.79> Escalation succeeded
+<32.195.71.79> (0, b'\n{"name": "node_exporter", "state": "present", "append": false, "move_home": false, "changed": false, "uid": 999, "group": 988, "comment": "", "home": "/home/node_exporter", "shell": "/usr/sbin/nologin", "invocation": {"module_args": {"create_home": false, "name": "node_exporter", "shell": "/usr/sbin/nologin", "system": true, "state": "present", "non_unique": false, "force": false, "remove": false, "move_home": false, "append": false, "ssh_key_bits": 0, "ssh_key_type": "rsa", "ssh_key_comment": "ansible-generated on aiops-dev-bastion", "update_password": "always", "uid": null, "group": null, "groups": null, "comment": null, "home": null, "password": null, "login_class": null, "password_expire_max": null, "password_expire_min": null, "password_expire_warn": null, "hidden": null, "seuser": null, "skeleton": null, "generate_ssh_key": null, "ssh_key_file": null, "ssh_key_passphrase": null, "expires": null, "password_lock": null, "local": null, "profile": null, "authorization": null, "role": null, "umask": null, "password_expire_account_disable": null, "uid_min": null, "uid_max": null}}}\n', b'')
+ok: [aiops-dev-bastion] => {
+    "append": false,
+    "changed": false,
+    "comment": "",
+    "group": 988,
+    "home": "/home/node_exporter",
+    "invocation": {
+        "module_args": {
+            "append": false,
+            "authorization": null,
+            "comment": null,
+            "create_home": false,
+            "expires": null,
+            "force": false,
+            "generate_ssh_key": null,
+            "group": null,
+            "groups": null,
+            "hidden": null,
+            "home": null,
+            "local": null,
+            "login_class": null,
+            "move_home": false,
+            "name": "node_exporter",
+            "non_unique": false,
+            "password": null,
+            "password_expire_account_disable": null,
+            "password_expire_max": null,
+            "password_expire_min": null,
+            "password_expire_warn": null,
+            "password_lock": null,
+            "profile": null,
+            "remove": false,
+            "role": null,
+            "seuser": null,
+            "shell": "/usr/sbin/nologin",
+            "skeleton": null,
+            "ssh_key_bits": 0,
+            "ssh_key_comment": "ansible-generated on aiops-dev-bastion",
+            "ssh_key_file": null,
+            "ssh_key_passphrase": null,
+            "ssh_key_type": "rsa",
+            "state": "present",
+            "system": true,
+            "uid": null,
+            "uid_max": null,
+            "uid_min": null,
+            "umask": null,
+            "update_password": "always"
+        }
+    },
+    "move_home": false,
+    "name": "node_exporter",
+    "shell": "/usr/sbin/nologin",
+    "state": "present",
+    "uid": 999
+}
+
+TASK [node_exporter : Check the installed version] *****************************
+task path: /home/ubuntu/aiops-incident-copilot/ansible/roles/node_exporter/tasks/main.yml:9
+Using module file /usr/lib/python3/dist-packages/ansible/modules/command.py
+Pipelining is enabled.
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-upzfmaouvorrkqgpgotvkqfarmcwpbix ; /usr/bin/python3.12'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<32.195.71.79> Escalation succeeded
+<32.195.71.79> (0, b'\n{"changed": true, "stdout": "node_exporter, version 1.8.2 (branch: HEAD, revision: f1e0e8360aa60b6cb5e5cc1560bed348fc2c1895)\\n  build user:       root@03d440803209\\n  build date:       20240714-11:53:45\\n  go version:       go1.22.5\\n  platform:         linux/amd64\\n  tags:             unknown", "stderr": "", "rc": 0, "cmd": ["/usr/local/bin/node_exporter", "--version"], "start": "2026-11-23 16:35:01.090354", "end": "2026-11-23 16:35:01.098019", "delta": "0:00:00.007665", "msg": "", "invocation": {"module_args": {"_raw_params": "/usr/local/bin/node_exporter --version", "_uses_shell": false, "expand_argument_vars": true, "stdin_add_newline": true, "strip_empty_ends": true, "cmd": null, "argv": null, "chdir": null, "executable": null, "creates": null, "removes": null, "stdin": null}}}\n', b'')
+ok: [aiops-dev-bastion] => {
+    "changed": false,
+    "cmd": [
+        "/usr/local/bin/node_exporter",
+        "--version"
+    ],
+    "delta": "0:00:00.007665",
+    "end": "2026-11-23 16:35:01.098019",
+    "failed_when_result": false,
+    "invocation": {
+        "module_args": {
+            "_raw_params": "/usr/local/bin/node_exporter --version",
+            "_uses_shell": false,
+            "argv": null,
+            "chdir": null,
+            "cmd": null,
+            "creates": null,
+            "executable": null,
+            "expand_argument_vars": true,
+            "removes": null,
+            "stdin": null,
+            "stdin_add_newline": true,
+            "strip_empty_ends": true
+        }
+    },
+    "msg": "",
+    "rc": 0,
+    "start": "2026-11-23 16:35:01.090354",
+    "stderr": "",
+    "stderr_lines": [],
+    "stdout": "node_exporter, version 1.8.2 (branch: HEAD, revision: f1e0e8360aa60b6cb5e5cc1560bed348fc2c1895)\n  build user:       root@03d440803209\n  build date:       20240714-11:53:45\n  go version:       go1.22.5\n  platform:         linux/amd64\n  tags:             unknown",
+    "stdout_lines": [
+        "node_exporter, version 1.8.2 (branch: HEAD, revision: f1e0e8360aa60b6cb5e5cc1560bed348fc2c1895)",
+        "  build user:       root@03d440803209",
+        "  build date:       20240714-11:53:45",
+        "  go version:       go1.22.5",
+        "  platform:         linux/amd64",
+        "  tags:             unknown"
+    ]
+}
+
+TASK [node_exporter : Download the release tarball (checksum verified)] ********
+task path: /home/ubuntu/aiops-incident-copilot/ansible/roles/node_exporter/tasks/main.yml:18
+skipping: [aiops-dev-bastion] => {
+    "changed": false,
+    "false_condition": "node_exporter_version not in (node_exporter_current.stderr | default('')) and node_exporter_version not in (node_exporter_current.stdout | default(''))",
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [node_exporter : Unpack it] ***********************************************
+task path: /home/ubuntu/aiops-incident-copilot/ansible/roles/node_exporter/tasks/main.yml:25
+skipping: [aiops-dev-bastion] => {
+    "changed": false,
+    "false_condition": "node_exporter_version not in (node_exporter_current.stderr | default('')) and node_exporter_version not in (node_exporter_current.stdout | default(''))",
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [node_exporter : Install the binary] **************************************
+task path: /home/ubuntu/aiops-incident-copilot/ansible/roles/node_exporter/tasks/main.yml:31
+skipping: [aiops-dev-bastion] => {
+    "changed": false,
+    "false_condition": "node_exporter_version not in (node_exporter_current.stderr | default('')) and node_exporter_version not in (node_exporter_current.stdout | default(''))",
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [node_exporter : Install the systemd unit] ********************************
+task path: /home/ubuntu/aiops-incident-copilot/ansible/roles/node_exporter/tasks/main.yml:39
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'echo ~ubuntu && sleep 0'"'"''
+<32.195.71.79> (0, b'/home/ubuntu\n', b'')
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/ubuntu/.ansible/tmp `"&& mkdir "` echo /home/ubuntu/.ansible/tmp/ansible-tmp-1795451701.3449495-160712-80750227730459 `" && echo ansible-tmp-1795451701.3449495-160712-80750227730459="` echo /home/ubuntu/.ansible/tmp/ansible-tmp-1795451701.3449495-160712-80750227730459 `" ) && sleep 0'"'"''
+<32.195.71.79> (0, b'ansible-tmp-1795451701.3449495-160712-80750227730459=/home/ubuntu/.ansible/tmp/ansible-tmp-1795451701.3449495-160712-80750227730459\n', b'')
+Using module file /usr/lib/python3/dist-packages/ansible/modules/stat.py
+Pipelining is enabled.
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-mbgoglwwtpzprkjgmeowdysgvctwmgaj ; /usr/bin/python3.12'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<32.195.71.79> Escalation succeeded
+<32.195.71.79> (0, b'\n{"changed": false, "stat": {"exists": true, "path": "/etc/systemd/system/node_exporter.service", "mode": "0644", "isdir": false, "ischr": false, "isblk": false, "isreg": true, "isfifo": false, "islnk": false, "issock": false, "uid": 0, "gid": 0, "size": 360, "inode": 303224, "dev": 66305, "nlink": 1, "atime": 1795448776.2434893, "mtime": 1795448775.1594782, "ctime": 1795448775.4504812, "wusr": true, "rusr": true, "xusr": false, "wgrp": false, "rgrp": true, "xgrp": false, "woth": false, "roth": true, "xoth": false, "isuid": false, "isgid": false, "blocks": 8, "block_size": 4096, "device_type": 0, "readable": true, "writeable": true, "executable": false, "pw_name": "root", "gr_name": "root", "checksum": "a5082a4c36b285ebacaf81800a579ad830f25794", "mimetype": "text/plain", "charset": "us-ascii", "version": "1365026060", "attributes": ["extents"], "attr_flags": "e"}, "invocation": {"module_args": {"path": "/etc/systemd/system/node_exporter.service", "follow": false, "get_checksum": true, "get_size": false, "checksum_algorithm": "sha1", "get_mime": true, "get_attributes": true, "get_selinux_context": false}}}\n', b'')
+Using module file /usr/lib/python3/dist-packages/ansible/modules/file.py
+Pipelining is enabled.
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-hulvxjoehzidnadhxnayvjkaaszjzdtl ; /usr/bin/python3.12'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<32.195.71.79> Escalation succeeded
+<32.195.71.79> (0, b'\n{"path": "/etc/systemd/system/node_exporter.service", "changed": false, "uid": 0, "gid": 0, "owner": "root", "group": "root", "mode": "0644", "state": "file", "size": 360, "invocation": {"module_args": {"mode": "0644", "dest": "/etc/systemd/system/node_exporter.service", "_original_basename": "node_exporter.service.j2", "recurse": false, "state": "file", "path": "/etc/systemd/system/node_exporter.service", "force": false, "follow": true, "modification_time_format": "%Y%m%d%H%M.%S", "access_time_format": "%Y%m%d%H%M.%S", "unsafe_writes": false, "_diff_peek": null, "src": null, "modification_time": null, "access_time": null, "owner": null, "group": null, "seuser": null, "serole": null, "selevel": null, "setype": null, "attributes": null}}}\n', b'')
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'rm -f -r /home/ubuntu/.ansible/tmp/ansible-tmp-1795451701.3449495-160712-80750227730459/ > /dev/null 2>&1 && sleep 0'"'"''
+<32.195.71.79> (0, b'', b'')
+ok: [aiops-dev-bastion] => {
+    "changed": false,
+    "checksum": "a5082a4c36b285ebacaf81800a579ad830f25794",
+    "dest": "/etc/systemd/system/node_exporter.service",
+    "diff": [],
+    "gid": 0,
+    "group": "root",
+    "invocation": {
+        "module_args": {
+            "_diff_peek": null,
+            "_original_basename": "node_exporter.service.j2",
+            "access_time": null,
+            "access_time_format": "%Y%m%d%H%M.%S",
+            "attributes": null,
+            "dest": "/etc/systemd/system/node_exporter.service",
+            "follow": true,
+            "force": false,
+            "group": null,
+            "mode": "0644",
+            "modification_time": null,
+            "modification_time_format": "%Y%m%d%H%M.%S",
+            "owner": null,
+            "path": "/etc/systemd/system/node_exporter.service",
+            "recurse": false,
+            "selevel": null,
+            "serole": null,
+            "setype": null,
+            "seuser": null,
+            "src": null,
+            "state": "file",
+            "unsafe_writes": false
+        }
+    },
+    "mode": "0644",
+    "owner": "root",
+    "path": "/etc/systemd/system/node_exporter.service",
+    "size": 360,
+    "state": "file",
+    "uid": 0
+}
+
+TASK [node_exporter : Enable and start node_exporter] **************************
+task path: /home/ubuntu/aiops-incident-copilot/ansible/roles/node_exporter/tasks/main.yml:46
+[WARNING]: Could not match supplied host pattern, ignoring: role_ci
+Using module file /usr/lib/python3/dist-packages/ansible/modules/systemd.py
+Pipelining is enabled.
+<32.195.71.79> ESTABLISH SSH CONNECTION FOR USER: ubuntu
+<32.195.71.79> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/.ssh/aiops"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ubuntu"' -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/d6ccb2267c"' -o NumberOfPasswordPrompts=1 32.195.71.79 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-gvcpzbnzrdhkjmvjrrnwgwfqorwwtzvq ; /usr/bin/python3.12'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<32.195.71.79> Escalation succeeded
+<32.195.71.79> (0, b'\n{"name": "node_exporter", "changed": false, "status": {"Type": "simple", "ExitType": "main", "Restart": "on-failure", "RestartMode": "normal", "NotifyAccess": "none", "RestartUSec": "100ms", "RestartSteps": "0", "RestartMaxDelayUSec": "infinity", "RestartUSecNext": "100ms", "TimeoutStartUSec": "1min 30s", "TimeoutStopUSec": "1min 30s", "TimeoutAbortUSec": "1min 30s", "TimeoutStartFailureMode": "terminate", "TimeoutStopFailureMode": "terminate", "RuntimeMaxUSec": "infinity", "RuntimeRandomizedExtraUSec": "0", "WatchdogUSec": "0", "WatchdogTimestampMonotonic": "0", "RootDirectoryStartOnly": "no", "RemainAfterExit": "no", "GuessMainPID": "yes", "MainPID": "3837", "ControlPID": "0", "FileDescriptorStoreMax": "0", "NFileDescriptorStore": "0", "FileDescriptorStorePreserve": "restart", "StatusErrno": "0", "Result": "success", "ReloadResult": "success", "CleanResult": "success", "UID": "999", "GID": "988", "NRestarts": "0", "OOMPolicy": "stop", "ReloadSignal": "1", "ExecMainStartTimestamp": "Mon 2026-11-23 15:46:18 UTC", "ExecMainStartTimestampMonotonic": "6939660099", "ExecMainExitTimestampMonotonic": "0", "ExecMainPID": "3837", "ExecMainCode": "0", "ExecMainStatus": "0", "ExecStart": "{ path=/usr/local/bin/node_exporter ; argv[]=/usr/local/bin/node_exporter --web.listen-address=:9100 ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }", "ExecStartEx": "{ path=/usr/local/bin/node_exporter ; argv[]=/usr/local/bin/node_exporter --web.listen-address=:9100 ; flags= ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }", "Slice": "system.slice", "ControlGroup": "/system.slice/node_exporter.service", "ControlGroupId": "10103", "MemoryCurrent": "2707456", "MemoryPeak": "3211264", "MemorySwapCurrent": "0", "MemorySwapPeak": "0", "MemoryZSwapCurrent": "0", "MemoryAvailable": "552464384", "CPUUsageNSec": "26226000", "TasksCurrent": "4", "IPIngressBytes": "[no data]", "IPIngressPackets": "[no data]", "IPEgressBytes": "[no data]", "IPEgressPackets": "[no data]", "IOReadBytes": "[not set]", "IOReadOperations": "[not set]", "IOWriteBytes": "[not set]", "IOWriteOperations": "[not set]", "Delegate": "no", "CPUAccounting": "yes", "CPUWeight": "[not set]", "StartupCPUWeight": "[not set]", "CPUShares": "[not set]", "StartupCPUShares": "[not set]", "CPUQuotaPerSecUSec": "infinity", "CPUQuotaPeriodUSec": "infinity", "IOAccounting": "no", "IOWeight": "[not set]", "StartupIOWeight": "[not set]", "BlockIOAccounting": "no", "BlockIOWeight": "[not set]", "StartupBlockIOWeight": "[not set]", "MemoryAccounting": "yes", "DefaultMemoryLow": "0", "DefaultStartupMemoryLow": "0", "DefaultMemoryMin": "0", "MemoryMin": "0", "MemoryLow": "0", "StartupMemoryLow": "0", "MemoryHigh": "infinity", "StartupMemoryHigh": "infinity", "MemoryMax": "infinity", "StartupMemoryMax": "infinity", "MemorySwapMax": "infinity", "StartupMemorySwapMax": "infinity", "MemoryZSwapMax": "infinity", "StartupMemoryZSwapMax": "infinity", "MemoryLimit": "infinity", "DevicePolicy": "auto", "TasksAccounting": "yes", "TasksMax": "639", "IPAccounting": "no", "ManagedOOMSwap": "auto", "ManagedOOMMemoryPressure": "auto", "ManagedOOMMemoryPressureLimit": "0", "ManagedOOMPreference": "none", "MemoryPressureWatch": "auto", "MemoryPressureThresholdUSec": "200ms", "CoredumpReceive": "no", "UMask": "0022", "LimitCPU": "infinity", "LimitCPUSoft": "infinity", "LimitFSIZE": "infinity", "LimitFSIZESoft": "infinity", "LimitDATA": "infinity", "LimitDATASoft": "infinity", "LimitSTACK": "infinity", "LimitSTACKSoft": "8388608", "LimitCORE": "infinity", "LimitCORESoft": "0", "LimitRSS": "infinity", "LimitRSSSoft": "infinity", "LimitNOFILE": "524288", "LimitNOFILESoft": "1024", "LimitAS": "infinity", "LimitASSoft": "infinity", "LimitNPROC": "2132", "LimitNPROCSoft": "2132", "LimitMEMLOCK": "8388608", "LimitMEMLOCKSoft": "8388608", "LimitLOCKS": "infinity", "LimitLOCKSSoft": "infinity", "LimitSIGPENDING": "2132", "LimitSIGPENDINGSoft": "2132", "LimitMSGQUEUE": "819200", "LimitMSGQUEUESoft": "819200", "LimitNICE": "0", "LimitNICESoft": "0", "LimitRTPRIO": "0", "LimitRTPRIOSoft": "0", "LimitRTTIME": "infinity", "LimitRTTIMESoft": "infinity", "RootEphemeral": "no", "OOMScoreAdjust": "0", "CoredumpFilter": "0x33", "Nice": "0", "IOSchedulingClass": "2", "IOSchedulingPriority": "4", "CPUSchedulingPolicy": "0", "CPUSchedulingPriority": "0", "CPUAffinityFromNUMA": "no", "NUMAPolicy": "n/a", "TimerSlackNSec": "50000", "CPUSchedulingResetOnFork": "no", "NonBlocking": "no", "StandardInput": "null", "StandardOutput": "journal", "StandardError": "inherit", "TTYReset": "no", "TTYVHangup": "no", "TTYVTDisallocate": "no", "SyslogPriority": "30", "SyslogLevelPrefix": "yes", "SyslogLevel": "6", "SyslogFacility": "3", "LogLevelMax": "-1", "LogRateLimitIntervalUSec": "0", "LogRateLimitBurst": "0", "SecureBits": "0", "CapabilityBoundingSet": "cap_chown cap_dac_override cap_dac_read_search cap_fowner cap_fsetid cap_kill cap_setgid cap_setuid cap_setpcap cap_linux_immutable cap_net_bind_service cap_net_broadcast cap_net_admin cap_net_raw cap_ipc_lock cap_ipc_owner cap_sys_module cap_sys_rawio cap_sys_chroot cap_sys_ptrace cap_sys_pacct cap_sys_admin cap_sys_boot cap_sys_nice cap_sys_resource cap_sys_time cap_sys_tty_config cap_mknod cap_lease cap_audit_write cap_audit_control cap_setfcap cap_mac_override cap_mac_admin cap_syslog cap_wake_alarm cap_block_suspend cap_audit_read cap_perfmon cap_bpf cap_checkpoint_restore", "User": "node_exporter", "Group": "node_exporter", "DynamicUser": "no", "SetLoginEnvironment": "no", "RemoveIPC": "no", "PrivateTmp": "yes", "PrivateDevices": "no", "ProtectClock": "no", "ProtectKernelTunables": "no", "ProtectKernelModules": "no", "ProtectKernelLogs": "no", "ProtectControlGroups": "no", "PrivateNetwork": "no", "PrivateUsers": "no", "PrivateMounts": "no", "PrivateIPC": "no", "ProtectHome": "yes", "ProtectSystem": "strict", "SameProcessGroup": "no", "UtmpMode": "init", "IgnoreSIGPIPE": "yes", "NoNewPrivileges": "yes", "SystemCallErrorNumber": "2147483646", "LockPersonality": "no", "RuntimeDirectoryPreserve": "no", "RuntimeDirectoryMode": "0755", "StateDirectoryMode": "0755", "CacheDirectoryMode": "0755", "LogsDirectoryMode": "0755", "ConfigurationDirectoryMode": "0755", "TimeoutCleanUSec": "infinity", "MemoryDenyWriteExecute": "no", "RestrictRealtime": "no", "RestrictSUIDSGID": "no", "RestrictNamespaces": "no", "MountAPIVFS": "no", "KeyringMode": "private", "ProtectProc": "default", "ProcSubset": "all", "ProtectHostname": "no", "MemoryKSM": "no", "RootImagePolicy": "root=verity+signed+encrypted+unprotected+absent:usr=verity+signed+encrypted+unprotected+absent:home=encrypted+unprotected+absent:srv=encrypted+unprotected+absent:tmp=encrypted+unprotected+absent:var=encrypted+unprotected+absent", "MountImagePolicy": "root=verity+signed+encrypted+unprotected+absent:usr=verity+signed+encrypted+unprotected+absent:home=encrypted+unprotected+absent:srv=encrypted+unprotected+absent:tmp=encrypted+unprotected+absent:var=encrypted+unprotected+absent", "ExtensionImagePolicy": "root=verity+signed+encrypted+unprotected+absent:usr=verity+signed+encrypted+unprotected+absent:home=encrypted+unprotected+absent:srv=encrypted+unprotected+absent:tmp=encrypted+unprotected+absent:var=encrypted+unprotected+absent", "KillMode": "control-group", "KillSignal": "15", "RestartKillSignal": "15", "FinalKillSignal": "9", "SendSIGKILL": "yes", "SendSIGHUP": "no", "WatchdogSignal": "6", "Id": "node_exporter.service", "Names": "node_exporter.service", "Requires": "-.mount sysinit.target system.slice", "Wants": "network-online.target tmp.mount", "WantedBy": "multi-user.target", "Conflicts": "shutdown.target", "Before": "shutdown.target multi-user.target", "After": "system.slice -.mount systemd-tmpfiles-setup.service basic.target tmp.mount network-online.target systemd-journald.socket sysinit.target", "RequiresMountsFor": "/var/tmp", "Description": "Prometheus Node Exporter", "LoadState": "loaded", "ActiveState": "active", "FreezerState": "running", "SubState": "running", "FragmentPath": "/etc/systemd/system/node_exporter.service", "UnitFileState": "enabled", "UnitFilePreset": "enabled", "StateChangeTimestamp": "Mon 2026-11-23 15:46:18 UTC", "StateChangeTimestampMonotonic": "6939660766", "InactiveExitTimestamp": "Mon 2026-11-23 15:46:18 UTC", "InactiveExitTimestampMonotonic": "6939660766", "ActiveEnterTimestamp": "Mon 2026-11-23 15:46:18 UTC", "ActiveEnterTimestampMonotonic": "6939660766", "ActiveExitTimestamp": "Mon 2026-11-23 15:46:18 UTC", "ActiveExitTimestampMonotonic": "6939652993", "InactiveEnterTimestamp": "Mon 2026-11-23 15:46:18 UTC", "InactiveEnterTimestampMonotonic": "6939653510", "CanStart": "yes", "CanStop": "yes", "CanReload": "no", "CanIsolate": "no", "CanFreeze": "yes", "StopWhenUnneeded": "no", "RefuseManualStart": "no", "RefuseManualStop": "no", "AllowIsolate": "no", "DefaultDependencies": "yes", "SurviveFinalKillSignal": "no", "OnSuccessJobMode": "fail", "OnFailureJobMode": "replace", "IgnoreOnIsolate": "no", "NeedDaemonReload": "no", "JobTimeoutUSec": "infinity", "JobRunningTimeoutUSec": "infinity", "JobTimeoutAction": "none", "ConditionResult": "yes", "AssertResult": "yes", "ConditionTimestamp": "Mon 2026-11-23 15:46:18 UTC", "ConditionTimestampMonotonic": "6939656598", "AssertTimestamp": "Mon 2026-11-23 15:46:18 UTC", "AssertTimestampMonotonic": "6939656600", "Transient": "no", "Perpetual": "no", "StartLimitIntervalUSec": "10s", "StartLimitBurst": "5", "StartLimitAction": "none", "FailureAction": "none", "SuccessAction": "none", "InvocationID": "839033ab2f1244cabdd2ab678bb04d54", "CollectMode": "inactive"}, "enabled": true, "state": "started", "invocation": {"module_args": {"daemon_reload": true, "enabled": true, "name": "node_exporter", "state": "started", "daemon_reexec": false, "scope": "system", "no_block": false, "force": null, "masked": null}}}\n', b'')
+ok: [aiops-dev-bastion] => {
+    "changed": false,
+    "enabled": true,
+    "invocation": {
+        "module_args": {
+            "daemon_reexec": false,
+            "daemon_reload": true,
+            "enabled": true,
+            "force": null,
+            "masked": null,
+            "name": "node_exporter",
+            "no_block": false,
+            "scope": "system",
+            "state": "started"
+        }
+    },
+    "name": "node_exporter",
+    "state": "started",
+    "status": {
+        "ActiveEnterTimestamp": "Mon 2026-11-23 15:46:18 UTC",
+        "ActiveEnterTimestampMonotonic": "6939660766",
+        "ActiveExitTimestamp": "Mon 2026-11-23 15:46:18 UTC",
+        "ActiveExitTimestampMonotonic": "6939652993",
+        "ActiveState": "active",
+        "After": "system.slice -.mount systemd-tmpfiles-setup.service basic.target tmp.mount network-online.target systemd-journald.socket sysinit.target",
+        "AllowIsolate": "no",
+        "AssertResult": "yes",
+        "AssertTimestamp": "Mon 2026-11-23 15:46:18 UTC",
+        "AssertTimestampMonotonic": "6939656600",
+        "Before": "shutdown.target multi-user.target",
+        "BlockIOAccounting": "no",
+        "BlockIOWeight": "[not set]",
+        "CPUAccounting": "yes",
+        "CPUAffinityFromNUMA": "no",
+        "CPUQuotaPerSecUSec": "infinity",
+        "CPUQuotaPeriodUSec": "infinity",
+        "CPUSchedulingPolicy": "0",
+        "CPUSchedulingPriority": "0",
+        "CPUSchedulingResetOnFork": "no",
+        "CPUShares": "[not set]",
+        "CPUUsageNSec": "26226000",
+        "CPUWeight": "[not set]",
+        "CacheDirectoryMode": "0755",
+        "CanFreeze": "yes",
+        "CanIsolate": "no",
+        "CanReload": "no",
+        "CanStart": "yes",
+        "CanStop": "yes",
+        "CapabilityBoundingSet": "cap_chown cap_dac_override cap_dac_read_search cap_fowner cap_fsetid cap_kill cap_setgid cap_setuid cap_setpcap cap_linux_immutable cap_net_bind_service cap_net_broadcast cap_net_admin cap_net_raw cap_ipc_lock cap_ipc_owner cap_sys_module cap_sys_rawio cap_sys_chroot cap_sys_ptrace cap_sys_pacct cap_sys_admin cap_sys_boot cap_sys_nice cap_sys_resource cap_sys_time cap_sys_tty_config cap_mknod cap_lease cap_audit_write cap_audit_control cap_setfcap cap_mac_override cap_mac_admin cap_syslog cap_wake_alarm cap_block_suspend cap_audit_read cap_perfmon cap_bpf cap_checkpoint_restore",
+        "CleanResult": "success",
+        "CollectMode": "inactive",
+        "ConditionResult": "yes",
+        "ConditionTimestamp": "Mon 2026-11-23 15:46:18 UTC",
+        "ConditionTimestampMonotonic": "6939656598",
+        "ConfigurationDirectoryMode": "0755",
+        "Conflicts": "shutdown.target",
+        "ControlGroup": "/system.slice/node_exporter.service",
+        "ControlGroupId": "10103",
+        "ControlPID": "0",
+        "CoredumpFilter": "0x33",
+        "CoredumpReceive": "no",
+        "DefaultDependencies": "yes",
+        "DefaultMemoryLow": "0",
+        "DefaultMemoryMin": "0",
+        "DefaultStartupMemoryLow": "0",
+        "Delegate": "no",
+        "Description": "Prometheus Node Exporter",
+        "DevicePolicy": "auto",
+        "DynamicUser": "no",
+        "ExecMainCode": "0",
+        "ExecMainExitTimestampMonotonic": "0",
+        "ExecMainPID": "3837",
+        "ExecMainStartTimestamp": "Mon 2026-11-23 15:46:18 UTC",
+        "ExecMainStartTimestampMonotonic": "6939660099",
+        "ExecMainStatus": "0",
+        "ExecStart": "{ path=/usr/local/bin/node_exporter ; argv[]=/usr/local/bin/node_exporter --web.listen-address=:9100 ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }",
+        "ExecStartEx": "{ path=/usr/local/bin/node_exporter ; argv[]=/usr/local/bin/node_exporter --web.listen-address=:9100 ; flags= ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }",
+        "ExitType": "main",
+        "ExtensionImagePolicy": "root=verity+signed+encrypted+unprotected+absent:usr=verity+signed+encrypted+unprotected+absent:home=encrypted+unprotected+absent:srv=encrypted+unprotected+absent:tmp=encrypted+unprotected+absent:var=encrypted+unprotected+absent",
+        "FailureAction": "none",
+        "FileDescriptorStoreMax": "0",
+        "FileDescriptorStorePreserve": "restart",
+        "FinalKillSignal": "9",
+        "FragmentPath": "/etc/systemd/system/node_exporter.service",
+        "FreezerState": "running",
+        "GID": "988",
+        "Group": "node_exporter",
+        "GuessMainPID": "yes",
+        "IOAccounting": "no",
+        "IOReadBytes": "[not set]",
+        "IOReadOperations": "[not set]",
+        "IOSchedulingClass": "2",
+        "IOSchedulingPriority": "4",
+        "IOWeight": "[not set]",
+        "IOWriteBytes": "[not set]",
+        "IOWriteOperations": "[not set]",
+        "IPAccounting": "no",
+        "IPEgressBytes": "[no data]",
+        "IPEgressPackets": "[no data]",
+        "IPIngressBytes": "[no data]",
+        "IPIngressPackets": "[no data]",
+        "Id": "node_exporter.service",
+        "IgnoreOnIsolate": "no",
+        "IgnoreSIGPIPE": "yes",
+        "InactiveEnterTimestamp": "Mon 2026-11-23 15:46:18 UTC",
+        "InactiveEnterTimestampMonotonic": "6939653510",
+        "InactiveExitTimestamp": "Mon 2026-11-23 15:46:18 UTC",
+        "InactiveExitTimestampMonotonic": "6939660766",
+        "InvocationID": "839033ab2f1244cabdd2ab678bb04d54",
+        "JobRunningTimeoutUSec": "infinity",
+        "JobTimeoutAction": "none",
+        "JobTimeoutUSec": "infinity",
+        "KeyringMode": "private",
+        "KillMode": "control-group",
+        "KillSignal": "15",
+        "LimitAS": "infinity",
+        "LimitASSoft": "infinity",
+        "LimitCORE": "infinity",
+        "LimitCORESoft": "0",
+        "LimitCPU": "infinity",
+        "LimitCPUSoft": "infinity",
+        "LimitDATA": "infinity",
+        "LimitDATASoft": "infinity",
+        "LimitFSIZE": "infinity",
+        "LimitFSIZESoft": "infinity",
+        "LimitLOCKS": "infinity",
+        "LimitLOCKSSoft": "infinity",
+        "LimitMEMLOCK": "8388608",
+        "LimitMEMLOCKSoft": "8388608",
+        "LimitMSGQUEUE": "819200",
+        "LimitMSGQUEUESoft": "819200",
+        "LimitNICE": "0",
+        "LimitNICESoft": "0",
+        "LimitNOFILE": "524288",
+        "LimitNOFILESoft": "1024",
+        "LimitNPROC": "2132",
+        "LimitNPROCSoft": "2132",
+        "LimitRSS": "infinity",
+        "LimitRSSSoft": "infinity",
+        "LimitRTPRIO": "0",
+        "LimitRTPRIOSoft": "0",
+        "LimitRTTIME": "infinity",
+        "LimitRTTIMESoft": "infinity",
+        "LimitSIGPENDING": "2132",
+        "LimitSIGPENDINGSoft": "2132",
+        "LimitSTACK": "infinity",
+        "LimitSTACKSoft": "8388608",
+        "LoadState": "loaded",
+        "LockPersonality": "no",
+        "LogLevelMax": "-1",
+        "LogRateLimitBurst": "0",
+        "LogRateLimitIntervalUSec": "0",
+        "LogsDirectoryMode": "0755",
+        "MainPID": "3837",
+        "ManagedOOMMemoryPressure": "auto",
+        "ManagedOOMMemoryPressureLimit": "0",
+        "ManagedOOMPreference": "none",
+        "ManagedOOMSwap": "auto",
+        "MemoryAccounting": "yes",
+        "MemoryAvailable": "552464384",
+        "MemoryCurrent": "2707456",
+        "MemoryDenyWriteExecute": "no",
+        "MemoryHigh": "infinity",
+        "MemoryKSM": "no",
+        "MemoryLimit": "infinity",
+        "MemoryLow": "0",
+        "MemoryMax": "infinity",
+        "MemoryMin": "0",
+        "MemoryPeak": "3211264",
+        "MemoryPressureThresholdUSec": "200ms",
+        "MemoryPressureWatch": "auto",
+        "MemorySwapCurrent": "0",
+        "MemorySwapMax": "infinity",
+        "MemorySwapPeak": "0",
+        "MemoryZSwapCurrent": "0",
+        "MemoryZSwapMax": "infinity",
+        "MountAPIVFS": "no",
+        "MountImagePolicy": "root=verity+signed+encrypted+unprotected+absent:usr=verity+signed+encrypted+unprotected+absent:home=encrypted+unprotected+absent:srv=encrypted+unprotected+absent:tmp=encrypted+unprotected+absent:var=encrypted+unprotected+absent",
+        "NFileDescriptorStore": "0",
+        "NRestarts": "0",
+        "NUMAPolicy": "n/a",
+        "Names": "node_exporter.service",
+        "NeedDaemonReload": "no",
+        "Nice": "0",
+        "NoNewPrivileges": "yes",
+        "NonBlocking": "no",
+        "NotifyAccess": "none",
+        "OOMPolicy": "stop",
+        "OOMScoreAdjust": "0",
+        "OnFailureJobMode": "replace",
+        "OnSuccessJobMode": "fail",
+        "Perpetual": "no",
+        "PrivateDevices": "no",
+        "PrivateIPC": "no",
+        "PrivateMounts": "no",
+        "PrivateNetwork": "no",
+        "PrivateTmp": "yes",
+        "PrivateUsers": "no",
+        "ProcSubset": "all",
+        "ProtectClock": "no",
+        "ProtectControlGroups": "no",
+        "ProtectHome": "yes",
+        "ProtectHostname": "no",
+        "ProtectKernelLogs": "no",
+        "ProtectKernelModules": "no",
+        "ProtectKernelTunables": "no",
+        "ProtectProc": "default",
+        "ProtectSystem": "strict",
+        "RefuseManualStart": "no",
+        "RefuseManualStop": "no",
+        "ReloadResult": "success",
+        "ReloadSignal": "1",
+        "RemainAfterExit": "no",
+        "RemoveIPC": "no",
+        "Requires": "-.mount sysinit.target system.slice",
+        "RequiresMountsFor": "/var/tmp",
+        "Restart": "on-failure",
+        "RestartKillSignal": "15",
+        "RestartMaxDelayUSec": "infinity",
+        "RestartMode": "normal",
+        "RestartSteps": "0",
+        "RestartUSec": "100ms",
+        "RestartUSecNext": "100ms",
+        "RestrictNamespaces": "no",
+        "RestrictRealtime": "no",
+        "RestrictSUIDSGID": "no",
+        "Result": "success",
+        "RootDirectoryStartOnly": "no",
+        "RootEphemeral": "no",
+        "RootImagePolicy": "root=verity+signed+encrypted+unprotected+absent:usr=verity+signed+encrypted+unprotected+absent:home=encrypted+unprotected+absent:srv=encrypted+unprotected+absent:tmp=encrypted+unprotected+absent:var=encrypted+unprotected+absent",
+        "RuntimeDirectoryMode": "0755",
+        "RuntimeDirectoryPreserve": "no",
+        "RuntimeMaxUSec": "infinity",
+        "RuntimeRandomizedExtraUSec": "0",
+        "SameProcessGroup": "no",
+        "SecureBits": "0",
+        "SendSIGHUP": "no",
+        "SendSIGKILL": "yes",
+        "SetLoginEnvironment": "no",
+        "Slice": "system.slice",
+        "StandardError": "inherit",
+        "StandardInput": "null",
+        "StandardOutput": "journal",
+        "StartLimitAction": "none",
+        "StartLimitBurst": "5",
+        "StartLimitIntervalUSec": "10s",
+        "StartupBlockIOWeight": "[not set]",
+        "StartupCPUShares": "[not set]",
+        "StartupCPUWeight": "[not set]",
+        "StartupIOWeight": "[not set]",
+        "StartupMemoryHigh": "infinity",
+        "StartupMemoryLow": "0",
+        "StartupMemoryMax": "infinity",
+        "StartupMemorySwapMax": "infinity",
+        "StartupMemoryZSwapMax": "infinity",
+        "StateChangeTimestamp": "Mon 2026-11-23 15:46:18 UTC",
+        "StateChangeTimestampMonotonic": "6939660766",
+        "StateDirectoryMode": "0755",
+        "StatusErrno": "0",
+        "StopWhenUnneeded": "no",
+        "SubState": "running",
+        "SuccessAction": "none",
+        "SurviveFinalKillSignal": "no",
+        "SyslogFacility": "3",
+        "SyslogLevel": "6",
+        "SyslogLevelPrefix": "yes",
+        "SyslogPriority": "30",
+        "SystemCallErrorNumber": "2147483646",
+        "TTYReset": "no",
+        "TTYVHangup": "no",
+        "TTYVTDisallocate": "no",
+        "TasksAccounting": "yes",
+        "TasksCurrent": "4",
+        "TasksMax": "639",
+        "TimeoutAbortUSec": "1min 30s",
+        "TimeoutCleanUSec": "infinity",
+        "TimeoutStartFailureMode": "terminate",
+        "TimeoutStartUSec": "1min 30s",
+        "TimeoutStopFailureMode": "terminate",
+        "TimeoutStopUSec": "1min 30s",
+        "TimerSlackNSec": "50000",
+        "Transient": "no",
+        "Type": "simple",
+        "UID": "999",
+        "UMask": "0022",
+        "UnitFilePreset": "enabled",
+        "UnitFileState": "enabled",
+        "User": "node_exporter",
+        "UtmpMode": "init",
+        "WantedBy": "multi-user.target",
+        "Wants": "network-online.target tmp.mount",
+        "WatchdogSignal": "6",
+        "WatchdogTimestampMonotonic": "0",
+        "WatchdogUSec": "0"
+    }
+}
+
+PLAY [Docker on the CI host (Jenkins arrives in phase 3)] **********************
+skipping: no hosts matched
+
+PLAY RECAP *********************************************************************
+aiops-dev-bastion          : ok=16   changed=0    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
+aiops-dev-ci               : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+aiops-dev-k3s              : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+

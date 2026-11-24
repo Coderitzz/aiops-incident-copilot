@@ -1,0 +1,13 @@
+---
+- name: Baseline hardening and monitoring agent on every host
+  hosts: all
+  become: true
+  roles:
+    - common
+    - node_exporter
+
+- name: Docker on the CI host (Jenkins arrives in phase 3)
+  hosts: role_ci
+  become: true
+  roles:
+    - docker
