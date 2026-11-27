@@ -1,0 +1,6 @@
+AIOps demo shop deployed to namespace {{ .Release.Namespace }}.
+
+  kubectl -n {{ .Release.Namespace }} get pods,svc,ingress,hpa
+
+Reach the frontend through Traefik on the k3s node (port 80), for example with:
+  make app-tunnel     # then open http://localhost:8081

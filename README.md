@@ -42,6 +42,20 @@ Hosts are found through the dynamic AWS inventory (tag `Project=aiops`).
     make ansible-site
     make tf-destroy        # when you are done for the day
 
+## Phase 3: Kubernetes (k3s), Helm, Jenkins
+
+Ansible installs k3s on the `k3s` host and Jenkins plus Docker, AWS CLI, kubectl, Helm and Trivy
+on the `ci` host. The Helm chart in `k8s/charts/aiops` deploys the four services, Postgres, Redis,
+HPAs and a Traefik ingress. The `Jenkinsfile` runs: lint and test, build, Trivy scan, push to ECR,
+`helm upgrade --atomic`, verify.
+
+    make ansible-platform       # k3s + Jenkins + tooling
+    # then follow jenkins/SETUP.md
+    make kubectl ARGS="get pods -n aiops"
+    make app-tunnel             # http://localhost:8081
+
+Local checks: `make test` (lint + unit tests), `make helm-lint`, `make helm-template`.
+
 ## Layout
 
 `services/` app code and Dockerfile, `terraform/` (bootstrap, modules, envs/dev), `ansible/` (inventory, roles, playbooks),

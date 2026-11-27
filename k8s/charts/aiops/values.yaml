@@ -1,0 +1,71 @@
+image:
+  # Set by Jenkins: <account>.dkr.ecr.<region>.amazonaws.com/aiops
+  registry: ""
+  tag: latest
+  pullPolicy: IfNotPresent
+  # Secret holding ECR credentials (Jenkins refreshes it on every deploy). Empty = none.
+  pullSecret: ecr-pull
+
+ingress:
+  enabled: true
+  className: traefik # k3s ships Traefik
+  host: ""           # empty = match any host
+
+postgres:
+  enabled: true
+  image: postgres:16-alpine
+  user: app
+  database: orders
+  password: app      # demo only: override with --set postgres.password=...
+  storage: 1Gi
+
+redis:
+  enabled: true
+  image: redis:7-alpine
+
+# One entry per microservice; templates loop over this map.
+services:
+  frontend:
+    port: 8000
+    replicas: 2
+    hpa: { minReplicas: 2, maxReplicas: 4, targetCPU: 70 }
+    env:
+      - { name: ORDER_URL, value: "http://order-service:8000" }
+    resources:
+      requests: { cpu: 50m, memory: 96Mi }
+      limits: { memory: 256Mi }
+
+  order-service:
+    port: 8000
+    replicas: 2
+    hpa: { minReplicas: 2, maxReplicas: 4, targetCPU: 70 }
+    env:
+      - name: POSTGRES_PASSWORD
+        valueFrom:
+          secretKeyRef: { name: postgres-credentials, key: password }
+      - name: DATABASE_URL
+        value: "postgresql://app:$(POSTGRES_PASSWORD)@postgres:5432/orders"
+      - { name: INVENTORY_URL, value: "http://inventory-service:8000" }
+      - { name: PAYMENT_URL, value: "http://payment-service:8000" }
+    resources:
+      requests: { cpu: 50m, memory: 96Mi }
+      limits: { memory: 256Mi }
+
+  # Fixed replicas (no HPA) so a human-approved "scale payment-service" is not overridden.
+  # The 256Mi limit means the /faults/leak demo ends in an OOMKill and a restart.
+  payment-service:
+    port: 8000
+    replicas: 2
+    env: []
+    resources:
+      requests: { cpu: 50m, memory: 96Mi }
+      limits: { memory: 256Mi }
+
+  inventory-service:
+    port: 8000
+    replicas: 1
+    env:
+      - { name: REDIS_URL, value: "redis://redis:6379/0" }
+    resources:
+      requests: { cpu: 50m, memory: 96Mi }
+      limits: { memory: 256Mi }

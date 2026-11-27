@@ -1,0 +1,59 @@
+---
+- name: Install AWS CLI v2
+  block:
+    - name: Download the AWS CLI bundle
+      ansible.builtin.get_url:
+        url: "https://awscli.amazonaws.com/awscli-exe-linux-{{ awscli_arch }}.zip"
+        dest: /tmp/awscliv2.zip
+        mode: "0644"
+    - name: Unpack it
+      ansible.builtin.unarchive:
+        src: /tmp/awscliv2.zip
+        dest: /tmp
+        remote_src: true
+    - name: Run the installer
+      ansible.builtin.command: /tmp/aws/install
+      args:
+        creates: /usr/local/bin/aws
+
+- name: Install kubectl (checksum verified)
+  ansible.builtin.get_url:
+    url: "https://dl.k8s.io/release/v{{ kubectl_version }}/bin/linux/{{ tools_arch }}/kubectl"
+    dest: /usr/local/bin/kubectl
+    mode: "0755"
+    checksum: "sha256:https://dl.k8s.io/release/v{{ kubectl_version }}/bin/linux/{{ tools_arch }}/kubectl.sha256"
+
+- name: Install Helm
+  block:
+    - name: Download the Helm tarball (checksum verified)
+      ansible.builtin.get_url:
+        url: "https://get.helm.sh/helm-v{{ helm_version }}-linux-{{ tools_arch }}.tar.gz"
+        dest: "/tmp/helm-{{ helm_version }}.tar.gz"
+        checksum: "sha256:https://get.helm.sh/helm-v{{ helm_version }}-linux-{{ tools_arch }}.tar.gz.sha256sum"
+        mode: "0644"
+    - name: Unpack it
+      ansible.builtin.unarchive:
+        src: "/tmp/helm-{{ helm_version }}.tar.gz"
+        dest: /tmp
+        remote_src: true
+    - name: Install the binary
+      ansible.builtin.copy:
+        src: "/tmp/linux-{{ tools_arch }}/helm"
+        dest: /usr/local/bin/helm
+        mode: "0755"
+        remote_src: true
+
+- name: Install Trivy
+  block:
+    - name: Download the Trivy tarball (checksum verified)
+      ansible.builtin.get_url:
+        url: "https://github.com/aquasecurity/trivy/releases/download/v{{ trivy_version }}/trivy_{{ trivy_version }}_Linux-{{ trivy_arch }}.tar.gz"
+        dest: "/tmp/trivy-{{ trivy_version }}.tar.gz"
+        checksum: "sha256:https://github.com/aquasecurity/trivy/releases/download/v{{ trivy_version }}/trivy_{{ trivy_version }}_checksums.txt"
+        mode: "0644"
+    - name: Install the binary
+      ansible.builtin.unarchive:
+        src: "/tmp/trivy-{{ trivy_version }}.tar.gz"
+        dest: /usr/local/bin
+        remote_src: true
+        include: [trivy]

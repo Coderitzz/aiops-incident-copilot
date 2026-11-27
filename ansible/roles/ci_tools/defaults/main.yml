@@ -1,0 +1,7 @@
+---
+kubectl_version: "1.31.4"   # same minor as k3s_version
+helm_version: "3.16.3"
+trivy_version: "0.58.1"
+tools_arch: "{{ 'arm64' if ansible_architecture == 'aarch64' else 'amd64' }}"
+trivy_arch: "{{ 'ARM64' if ansible_architecture == 'aarch64' else '64bit' }}"
+awscli_arch: "{{ 'aarch64' if ansible_architecture == 'aarch64' else 'x86_64' }}"

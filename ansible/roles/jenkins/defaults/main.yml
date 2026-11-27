@@ -1,0 +1,4 @@
+---
+jenkins_kubeconfig_owners:
+  - { path: /var/lib/jenkins/.kube, owner: jenkins, group: jenkins }
+  - { path: /home/ubuntu/.kube, owner: ubuntu, group: ubuntu }

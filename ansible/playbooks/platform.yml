@@ -1,0 +1,16 @@
+---
+# Run after site.yml (baseline). Order matters: the k3s play must finish
+# before the CI play copies its kubeconfig.
+- name: Kubernetes (k3s) on the cluster host
+  hosts: role_k3s
+  become: true
+  roles:
+    - k3s
+
+- name: Docker, CI tooling and Jenkins on the CI host
+  hosts: role_ci
+  become: true
+  roles:
+    - docker
+    - ci_tools
+    - jenkins

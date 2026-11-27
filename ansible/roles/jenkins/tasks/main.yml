@@ -1,0 +1,51 @@
+---
+- name: Install Java (Jenkins runtime)
+  ansible.builtin.apt:
+    name: openjdk-17-jre-headless
+    state: present
+    update_cache: true
+
+- name: Create the apt keyrings directory
+  ansible.builtin.file:
+    path: /etc/apt/keyrings
+    state: directory
+    mode: "0755"
+
+- name: Download the Jenkins apt signing key
+  ansible.builtin.get_url:
+    url: https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+    dest: /etc/apt/keyrings/jenkins-keyring.asc
+    mode: "0644"
+
+- name: Add the Jenkins apt repository
+  ansible.builtin.apt_repository:
+    repo: "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/"
+    filename: jenkins
+    state: present
+
+- name: Install Jenkins
+  ansible.builtin.apt:
+    name: jenkins
+    state: present
+    update_cache: true
+
+- name: Let the jenkins user run docker
+  ansible.builtin.user:
+    name: jenkins
+    groups: docker
+    append: true
+  notify: Restart jenkins
+
+- name: Enable and start Jenkins
+  ansible.builtin.service:
+    name: jenkins
+    enabled: true
+    state: started
+
+- name: Wait for Jenkins to listen on 8080
+  ansible.builtin.wait_for:
+    port: 8080
+    timeout: 180
+
+- name: Give Jenkins (and ubuntu) cluster access
+  ansible.builtin.include_tasks: kubeconfig.yml
